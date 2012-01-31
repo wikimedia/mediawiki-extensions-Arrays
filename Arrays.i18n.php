@@ -92,6 +92,13 @@ $messages['dsb'] = array(
 	'arrays-desc' => 'Zmóžnja składowanje a woblicenje pomjenjonych pólowych wariablow',
 );
 
+/** Spanish (Español)
+ * @author Armando-Martin
+ */
+$messages['es'] = array(
+	'arrays-desc' => 'Almacenar y calcular matrices con nombre',
+);
+
 /** French (Français)
  * @author Wyz
  */

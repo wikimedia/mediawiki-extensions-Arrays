@@ -7,6 +7,10 @@
      version 1.3.2. A new option 'singleempty' can be used to avoid this behavior, ',' can be used to
      create an array with two empty elements.
    - Bug fixed where '#arraysearch' would always return '-1' instead of parameter 5 value.
+   - '#arraysort' (for 'asce' and 'desc' modes) now respects local sort settings specified via PHPs
+     'setlocale()'. A flag system allows to set 'nolocale' separated by a space behind the sort mode. to
+	 deactivate this for the sorting.
+   - '#arraysort' has a new sort mode 'natural' which will sort numbers within strings more human-like.
 
  * December 5, 2011 -- Version 2.0rc2
     - Bug introduced in r105069 fixed where '#arrayprint' was broken in compatibility mode in some cases.

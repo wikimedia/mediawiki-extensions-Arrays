@@ -69,7 +69,7 @@ class ExtArrays {
 	 * 
 	 * @since 2.0
 	 * 
-	 * @var type 
+	 * @var string 
 	 */
 	static $mDefaultSep;
 
@@ -130,7 +130,7 @@ class ExtArrays {
 	 *
 	 * @since 2.0
 	 *
-	 * @return boolean
+	 * @return string
 	 */
 	public static function getDir() {
 		static $dir = null;
@@ -1091,8 +1091,8 @@ class ExtArrays {
 	 * This is save and faster for internal usage, just be sure your array doesn't have un-trimmed
 	 * values or non-numeric or negative array keys and no gaps between keys.
 	 *
-	 * @param type $arrayId
-	 * @param type $array
+	 * @param string $arrayId
+	 * @param array $array
 	 */
 	protected function setArray( $arrayId, $array = array() ) {
 		$this->mArrays[ trim( $arrayId ) ] = $array;
@@ -1192,24 +1192,52 @@ class ExtArrays {
 	 * @since 2.0
 	 *
 	 * @param array $array
-	 * @param string $sortMode
+	 * @param string $sortMode one of the following sort modes:
+	 *        - random:  random array order
+	 *        - reverse: last entry will be first, first the last.
+	 *        - asce:    sort array in ascending order.
+	 *        - desc:    sort array in descending order.
+	 *        - natural: sort with a 'natural order' algorithm. See PHPs natsort() function.
+	 * 
+	 *        In addition, this function allows to set several flags behind the sort mode. The must be
+	 *        separated by a space. The following keys are allowed:
+	 *        - nolocale: will prevent 'asce' and 'desc' mode to considering PHP-defined language rules.
 	 *
 	 * @return array
 	 */
 	public static function arraySort( array $array, $sortMode ) {
-		// do the requested sorting of the given array:
+		global $egArraysCompatibilityMode;
+		
+		$flags = preg_split( '/\s+/s', $sortMode );
+		$sortMode = array_shift( $flags ); // first string is the actual sort mode
+		
+		$localeFlag = SORT_LOCALE_STRING; // sort strings accordingly to what was set via setlocale()
+		if(
+			in_array( 'nolocale', $flags )
+			|| $egArraysCompatibilityMode // COMPATIBILITY-MODE			
+		) {
+			// 'nolocale' will prevent from using this flag!
+			$localeFlag = null;
+		}
+		
+		// do the requested sorting of the given array:		
 		switch( $sortMode ) {
 			case 'asc':
 			case 'asce':
 			case 'ascending':
-				sort( $array );
+				sort( $array, $localeFlag );
 				break;
 
 			case 'desc':
 			case 'descending':
-				rsort( $array );
+				rsort( $array, $localeFlag );
 				break;
-
+			
+			case 'nat':
+			case 'natural':
+				natsort( $array );
+				break;
+			
 			case 'rand':
 			case 'random':
 				shuffle( $array );
@@ -1218,7 +1246,7 @@ class ExtArrays {
 			case 'reverse':
 				$array = array_reverse( $array );
 				break;
-		} ;
+		};
 		return $array;
 	}
 	

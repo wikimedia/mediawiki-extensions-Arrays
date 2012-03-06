@@ -99,6 +99,13 @@ $messages['es'] = array(
 	'arrays-desc' => 'Almacenar y calcular matrices con nombre',
 );
 
+/** Persian (فارسی)
+ * @author ZxxZxxZ
+ */
+$messages['fa'] = array(
+	'arrays-desc' => 'ذخیره و محاسبهٔ آرایه‌های نام‌گذاری‌شده',
+);
+
 /** French (Français)
  * @author Wyz
  */

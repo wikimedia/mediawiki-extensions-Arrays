@@ -149,7 +149,7 @@
     - update '#arraysort:' adding "random" option to make the array of values in random order
     - add '#arrayreset' to free all defined arrays for memory saving
     - add '#arrayslice' to return an array bounded by start_index and length.
-    - add  '#arraysearch.' now we can return the index of the first occurence of an element, return -1 if
+    - add  '#arraysearch.' now we can return the index of the first occurrence of an element, return -1 if
       not found
     - remove '#arraymember,'  obsoleted by '#arraysearch'
     - remove '#arraypush,' obsoleted by '#arraydefine' and '#arraymerge'

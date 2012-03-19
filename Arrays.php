@@ -446,8 +446,8 @@ class ExtArrays {
 
 
 	/**
-	* locate the index of the first occurence of an element starting from the 'index'
-	*    - print "-1" (not found) or index (found) to show the index of the first occurence of 'value' in the array identified by arrayid
+	* locate the index of the first occurrence of an element starting from the 'index'
+	*    - print "-1" (not found) or index (found) to show the index of the first occurrence of 'value' in the array identified by arrayid
 	*    - if 'yes' and 'no' are set, print value of them when found or not-found
 	*    - index is 0-based , it must be non-negative and less than lenth
 	* usage:

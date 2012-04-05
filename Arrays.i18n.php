@@ -204,6 +204,13 @@ $messages['lt'] = array(
 	'arrays-desc' => 'Saugoti ir apskaičiuoti pavadintas masyvai',
 );
 
+/** Lushai (Mizo ţawng)
+ * @author RMizo
+ */
+$messages['lus'] = array(
+	'arrays-desc' => 'Inremna dahţhatna leh chhûtna',
+);
+
 /** Macedonian (Македонски)
  * @author Bjankuloski06
  */

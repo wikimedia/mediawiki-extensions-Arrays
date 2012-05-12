@@ -317,7 +317,7 @@ $messages['uk'] = array(
 	'arrays-desc' => 'Зберігання та обчислення іменованих масивів',
 );
 
-/** Veps (Vepsan kel')
+/** Veps (Vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

@@ -282,6 +282,13 @@ $messages['ru'] = array(
 	'arrays-desc' => 'Хранение и вычисление именованных массивов',
 );
 
+/** Slovak (Slovenčina)
+ * @author Helix84
+ */
+$messages['sk'] = array(
+	'arrays-desc' => 'Ukladanie a počítanie pomenovaných polí',
+);
+
 /** Slovenian (Slovenščina)
  * @author Dbc334
  */

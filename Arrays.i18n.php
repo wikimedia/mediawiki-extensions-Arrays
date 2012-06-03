@@ -176,6 +176,13 @@ $messages['it'] = array(
 	'arrays-desc' => 'Memorizza e calcola matrici di nomi',
 );
 
+/** Korean (한국어)
+ * @author 아라
+ */
+$messages['ko'] = array(
+	'arrays-desc' => '배열이라는 이름에 저장하고 계산',
+);
+
 /** Colognian (Ripoarisch)
  * @author Purodha
  */

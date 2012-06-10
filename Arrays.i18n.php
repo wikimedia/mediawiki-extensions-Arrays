@@ -176,6 +176,13 @@ $messages['it'] = array(
 	'arrays-desc' => 'Memorizza e calcola matrici di nomi',
 );
 
+/** Japanese (日本語)
+ * @author Shirayuki
+ */
+$messages['ja'] = array(
+	'arrays-desc' => '連想配列への格納と利用',
+);
+
 /** Korean (한국어)
  * @author 아라
  */

@@ -36,7 +36,7 @@ $messages['ar'] = array(
 	'arrays-desc' => 'تخزين وحساب مصفوفات مسماة',
 );
 
-/** Asturian (Asturianu)
+/** Asturian (asturianu)
  * @author Xuacu
  */
 $messages['ast'] = array(
@@ -57,14 +57,14 @@ $messages['be-tarask'] = array(
 	'arrays-desc' => 'Захаваньне і вылічэньне масіваў з назвамі',
 );
 
-/** Breton (Brezhoneg)
+/** Breton (brezhoneg)
  * @author Fulup
  */
 $messages['br'] = array(
 	'arrays-desc' => 'Enrollañ ha plediñ gant an taolennoù anvet',
 );
 
-/** Bosnian (Bosanski)
+/** Bosnian (bosanski)
  * @author CERminator
  */
 $messages['bs'] = array(
@@ -92,7 +92,7 @@ $messages['dsb'] = array(
 	'arrays-desc' => 'Zmóžnja składowanje a woblicenje pomjenjonych pólowych wariablow',
 );
 
-/** Spanish (Español)
+/** Spanish (español)
  * @author Armando-Martin
  */
 $messages['es'] = array(
@@ -106,14 +106,14 @@ $messages['fa'] = array(
 	'arrays-desc' => 'ذخیره و محاسبهٔ آرایه‌های نام‌گذاری‌شده',
 );
 
-/** French (Français)
+/** French (français)
  * @author Wyz
  */
 $messages['fr'] = array(
 	'arrays-desc' => 'Enregistrer et traiter les tableaux nommés',
 );
 
-/** Franco-Provençal (Arpetan)
+/** Franco-Provençal (arpetan)
  * @author ChrisPtDe
  */
 $messages['frp'] = array(
@@ -148,14 +148,14 @@ $messages['hsb'] = array(
 	'arrays-desc' => 'Pomjenowane polowe wariable składować a wobličić',
 );
 
-/** Hungarian (Magyar)
+/** Hungarian (magyar)
  * @author Dj
  */
 $messages['hu'] = array(
 	'arrays-desc' => 'Nevesített tömbök tárolása és számítása',
 );
 
-/** Interlingua (Interlingua)
+/** Interlingua (interlingua)
  * @author McDutchie
  */
 $messages['ia'] = array(
@@ -169,7 +169,7 @@ $messages['id'] = array(
 	'arrays-desc' => 'Menyimpan dan menghitung larik bernama',
 );
 
-/** Italian (Italiano)
+/** Italian (italiano)
  * @author Beta16
  */
 $messages['it'] = array(
@@ -211,7 +211,7 @@ $messages['li'] = array(
 	'arrays-desc' => 'Beneumde verzamelinge opsjloon en berekene',
 );
 
-/** Lithuanian (Lietuvių)
+/** Lithuanian (lietuvių)
  * @author Ignas693
  */
 $messages['lt'] = array(
@@ -225,7 +225,7 @@ $messages['lus'] = array(
 	'arrays-desc' => 'Inremna dahţhatna leh chhûtna',
 );
 
-/** Macedonian (Македонски)
+/** Macedonian (македонски)
  * @author Bjankuloski06
  */
 $messages['mk'] = array(
@@ -253,7 +253,7 @@ $messages['nl'] = array(
 	'arrays-desc' => 'Benoemde verzamelingen opslaan en berekenen',
 );
 
-/** Polish (Polski)
+/** Polish (polski)
  * @author Sp5uhe
  */
 $messages['pl'] = array(
@@ -268,49 +268,49 @@ $messages['pms'] = array(
 	'arrays-desc' => 'Memorisé e calcolé le tàule nominà',
 );
 
-/** Portuguese (Português)
+/** Portuguese (português)
  * @author Hamilton Abreu
  */
 $messages['pt'] = array(
 	'arrays-desc' => 'Armazenar e calcular matrizes designadas',
 );
 
-/** Brazilian Portuguese (Português do Brasil)
+/** Brazilian Portuguese (português do Brasil)
  * @author Giro720
  */
 $messages['pt-br'] = array(
 	'arrays-desc' => 'Armazenar e calcular matrizes designadas',
 );
 
-/** Tarandíne (Tarandíne)
+/** tarandíne (tarandíne)
  * @author Joetaras
  */
 $messages['roa-tara'] = array(
 	'arrays-desc' => 'Stipe e calcole le array nomenate',
 );
 
-/** Russian (Русский)
+/** Russian (русский)
  * @author Александр Сигачёв
  */
 $messages['ru'] = array(
 	'arrays-desc' => 'Хранение и вычисление именованных массивов',
 );
 
-/** Slovak (Slovenčina)
+/** Slovak (slovenčina)
  * @author Helix84
  */
 $messages['sk'] = array(
 	'arrays-desc' => 'Ukladanie a počítanie pomenovaných polí',
 );
 
-/** Slovenian (Slovenščina)
+/** Slovenian (slovenščina)
  * @author Dbc334
  */
 $messages['sl'] = array(
 	'arrays-desc' => 'Shrani in izračuna imenovana polja',
 );
 
-/** Swedish (Svenska)
+/** Swedish (svenska)
  * @author WikiPhoenix
  */
 $messages['sv'] = array(
@@ -331,7 +331,7 @@ $messages['tr'] = array(
 	'arrays-desc' => 'İsimlendirilmiş dizileri sakla ve hsapla',
 );
 
-/** Ukrainian (Українська)
+/** Ukrainian (українська)
  * @author Sodmy
  */
 $messages['uk'] = array(
@@ -345,14 +345,14 @@ $messages['vep'] = array(
 	'arrays-desc' => 'Varata da lugeda nimitadud massivad',
 );
 
-/** Simplified Chinese (‪中文(简体)‬)
+/** Simplified Chinese (‪中文（简体）‬)
  * @author Hydra
  */
 $messages['zh-hans'] = array(
 	'arrays-desc' => '存储和计算指定的数组',
 );
 
-/** Traditional Chinese (‪中文(繁體)‬) */
+/** Traditional Chinese (‪中文（繁體）‬) */
 $messages['zh-hant'] = array(
 	'arrays-desc' => '存儲和計算指定的數組',
 );

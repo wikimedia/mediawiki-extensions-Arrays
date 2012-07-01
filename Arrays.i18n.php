@@ -50,7 +50,7 @@ $messages['ba'] = array(
 	'arrays-desc' => 'Исемләнгән массивтарҙы һаҡлау һәм иҫәпләү',
 );
 
-/** Belarusian (Taraškievica orthography) (‪Беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
  * @author EugeneZelenko
  */
 $messages['be-tarask'] = array(
@@ -85,7 +85,7 @@ $messages['de'] = array(
 	'arrays-desc' => 'Ermöglicht das Speichern und Nutzen definierter Datenreihen (Arrays)',
 );
 
-/** Lower Sorbian (Dolnoserbski)
+/** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
 $messages['dsb'] = array(
@@ -120,7 +120,7 @@ $messages['frp'] = array(
 	'arrays-desc' => 'Encartar et trètar los tablôs apelâs',
 );
 
-/** Galician (Galego)
+/** Galician (galego)
  * @author Toliño
  */
 $messages['gl'] = array(
@@ -141,7 +141,7 @@ $messages['he'] = array(
 	'arrays-desc' => 'אחסון וחישוב של מערכים בעלי שמות',
 );
 
-/** Upper Sorbian (Hornjoserbsce)
+/** Upper Sorbian (hornjoserbsce)
  * @author Michawiki
  */
 $messages['hsb'] = array(

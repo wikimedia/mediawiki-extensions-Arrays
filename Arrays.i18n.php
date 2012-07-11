@@ -43,7 +43,7 @@ $messages['ast'] = array(
 	'arrays-desc' => 'Almacenar y calcular matrices con nome',
 );
 
-/** Bashkir (Башҡортса)
+/** Bashkir (башҡортса)
  * @author Assele
  */
 $messages['ba'] = array(
@@ -239,7 +239,7 @@ $messages['ms'] = array(
 	'arrays-desc' => 'Menyimpan dan mengira tatasusunan bernama',
 );
 
-/** Norwegian (bokmål)‬ (‪Norsk (bokmål)‬)
+/** Norwegian Bokmål (‪norsk (bokmål)‬)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -338,7 +338,7 @@ $messages['uk'] = array(
 	'arrays-desc' => 'Зберігання та обчислення іменованих масивів',
 );
 
-/** Veps (Vepsän kel’)
+/** Veps (vepsän kel’)
  * @author Игорь Бродский
  */
 $messages['vep'] = array(

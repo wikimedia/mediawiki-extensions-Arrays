@@ -78,6 +78,13 @@ $messages['cy'] = array(
 	'arrays-desc' => "Storio a chyfrifo trefnau wedi'u henwi",
 );
 
+/** Danish (dansk)
+ * @author Hylle
+ */
+$messages['da'] = array(
+	'arrays-desc' => 'Gem og beregn navngivne arrays',
+);
+
 /** German (Deutsch)
  * @author Kghbln
  */

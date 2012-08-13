@@ -37,7 +37,8 @@ $wgHooks['ParserFirstCallInit'][] = 'ExtArrays::init';
 $wgHooks['ParserClearState'   ][] = 'ExtArrays::onParserClearState';
 
 // parser tests registration:
-$wgParserTestFiles[] = ExtArrays::getDir() . "/arrayParserTests.txt";
+$wgParserTestFiles[] = ExtArrays::getDir() . '/arrayParserTests.txt';
+$wgParserTestFiles[] = ExtArrays::getDir() . '/arrayLoopsInteractionParserTests.txt';
 
 // Include the settings file:
 require_once ExtArrays::getDir() . '/Arrays.settings.php';

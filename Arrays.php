@@ -7,7 +7,7 @@
  * Support:       http://www.mediawiki.org/wiki/Extension_talk:Arrays
  * Source code:   http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/Arrays
  *
- * @file Arrays.php
+ * @file
  * @ingroup Arrays
  *
  * @licence MIT License

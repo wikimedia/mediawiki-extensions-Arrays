@@ -3,7 +3,7 @@
 /**
  * Internationalization file for magic words in the 'Arrays' extension.
  *
- * @file Arrays.i18n.magic.php
+ * @file
  * @ingroup Arrays
  *
  * @licence MIT License

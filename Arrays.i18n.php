@@ -5,7 +5,7 @@
  *
  * @since 1.3.4
  *
- * @file Arrays.i18n.php
+ * @file
  * @ingroup Arrays
  *
  * @licence MIT License

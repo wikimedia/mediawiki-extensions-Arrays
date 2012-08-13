@@ -9,7 +9,7 @@
  * Changing one of these settings can be done by copying and placing
  * it in LocalSettings.php, AFTER the inclusion of 'Arrays'.
  *
- * @file Arrays_Settings.php
+ * @file
  * @ingroup Arrays
  * @since 2.0
  *

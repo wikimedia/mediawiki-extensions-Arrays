@@ -29,6 +29,20 @@ Template:!
 
 
 ##
+## 0. Misc
+##
+
+!! test
+Inclusion of special page does not reset arrays. Did not work before 'Arrays 2.0' rewrite
+!! input
+"{{#arraydefine:a|test}}{{#arraydefine:foo|{{Special:AllPages}} }}", "{{#arraysize:a}}"
+!!result
+<p>"", "1"
+</p>
+!! end
+
+
+##
 ## 1. Construction
 ## #arraydefine
 ##

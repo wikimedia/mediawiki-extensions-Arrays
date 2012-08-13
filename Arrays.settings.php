@@ -29,11 +29,11 @@ $egArraysCompatibilityMode = false;
  * Contains a key-value pair list of characters that should be replaced by a template or parser function
  * call within array values included into an '#arrayprint'. By replacing these special characters before
  * including the values into the string which is being expanded afterwards, array values can't distract
- * the surounding MW code. Otherwise the array values themselves would be parsed as well.
+ * the surrounding MW code. Otherwise the array values themselves would be parsed as well.
  *
  * This has no effect in case $egArraysCompatibilityMode is set to false! If set to null, Arrays will
- * jump to compatbility mode behavior on this, independently from $egArraysCompatibilityMode.
- * 
+ * jump to compatibility mode behavior on this, independently from $egArraysCompatibilityMode.
+ *
  * @since 2.0
  *
  * @var array|null

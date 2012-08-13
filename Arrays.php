@@ -36,8 +36,11 @@ $wgExtensionMessagesFiles['ArraysMagic'] = ExtArrays::getDir() . '/Arrays.i18n.m
 $wgHooks['ParserFirstCallInit'][] = 'ExtArrays::init';
 $wgHooks['ParserClearState'   ][] = 'ExtArrays::onParserClearState';
 
+// parser tests registration:
+$wgParserTestFiles[] = ExtArrays::getDir() . "/arrayParserTests.txt";
+
 // Include the settings file:
-require_once ExtArrays::getDir() . '/Arrays_Settings.php';
+require_once ExtArrays::getDir() . '/Arrays.settings.php';
 
 
 /**

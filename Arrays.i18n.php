@@ -50,7 +50,7 @@ $messages['ba'] = array(
 	'arrays-desc' => 'Исемләнгән массивтарҙы һаҡлау һәм иҫәпләү',
 );
 
-/** Belarusian (Taraškievica orthography) (‪беларуская (тарашкевіца)‬)
+/** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  */
 $messages['be-tarask'] = array(
@@ -246,7 +246,7 @@ $messages['ms'] = array(
 	'arrays-desc' => 'Menyimpan dan mengira tatasusunan bernama',
 );
 
-/** Norwegian Bokmål (‪norsk (bokmål)‬)
+/** Norwegian Bokmål (norsk (bokmål)‎)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(
@@ -352,14 +352,14 @@ $messages['vep'] = array(
 	'arrays-desc' => 'Varata da lugeda nimitadud massivad',
 );
 
-/** Simplified Chinese (‪中文（简体）‬)
+/** Simplified Chinese (中文（简体）‎)
  * @author Hydra
  */
 $messages['zh-hans'] = array(
 	'arrays-desc' => '存储和计算指定的数组',
 );
 
-/** Traditional Chinese (‪中文（繁體）‬) */
+/** Traditional Chinese (中文（繁體）‎) */
 $messages['zh-hant'] = array(
 	'arrays-desc' => '存儲和計算指定的數組',
 );

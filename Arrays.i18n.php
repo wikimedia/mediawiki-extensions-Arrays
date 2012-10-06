@@ -92,6 +92,13 @@ $messages['de'] = array(
 	'arrays-desc' => 'Ermöglicht das Speichern und Nutzen definierter Datenreihen (Arrays)',
 );
 
+/** Zazaki (Zazaki)
+ * @author Erdemaslancan
+ */
+$messages['diq'] = array(
+	'arrays-desc' => 'Ratnayışê ke name biyê ena bınımne u hesab ke',
+);
+
 /** Lower Sorbian (dolnoserbski)
  * @author Michawiki
  */
@@ -332,10 +339,11 @@ $messages['tl'] = array(
 );
 
 /** Turkish (Türkçe)
+ * @author Erdemaslancan
  * @author Khutuck
  */
 $messages['tr'] = array(
-	'arrays-desc' => 'İsimlendirilmiş dizileri sakla ve hsapla',
+	'arrays-desc' => 'İsimlendirilmiş dizileri sakla ve hesapla',
 );
 
 /** Ukrainian (українська)

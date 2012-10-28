@@ -232,7 +232,7 @@ $messages['lt'] = array(
 	'arrays-desc' => 'Saugoti ir apskaičiuoti pavadintas masyvai',
 );
 
-/** Lushai (Mizo ţawng)
+/** Mizo (Mizo ţawng)
  * @author RMizo
  */
 $messages['lus'] = array(

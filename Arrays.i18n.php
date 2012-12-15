@@ -43,6 +43,13 @@ $messages['ast'] = array(
 	'arrays-desc' => 'Almacenar y calcular matrices con nome',
 );
 
+/** South Azerbaijani (تورکجه)
+ * @author Mousa
+ */
+$messages['azb'] = array(
+	'arrays-desc' => 'آدلاندیریلمیش آرایه‌لری قئید ائت و حسابلا',
+);
+
 /** Bashkir (башҡортса)
  * @author Assele
  */

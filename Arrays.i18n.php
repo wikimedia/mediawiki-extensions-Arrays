@@ -24,9 +24,10 @@ $messages['en'] = array(
 /** Message documentation (Message documentation)
  * @author Purodha
  * @author Raymond
+ * @author Shirayuki
  */
 $messages['qqq'] = array(
-	'arrays-desc' => '{{desc}}',
+	'arrays-desc' => '{{desc|name=Arrays|url=http://www.mediawiki.org/wiki/Extension:Arrays}}',
 );
 
 /** Arabic (العربية)

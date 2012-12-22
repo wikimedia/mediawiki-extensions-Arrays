@@ -79,6 +79,13 @@ $messages['bs'] = array(
 	'arrays-desc' => 'Sačuvaj i izračunaj imenovane nizove',
 );
 
+/** Czech (česky)
+ * @author Paxt
+ */
+$messages['cs'] = array(
+	'arrays-desc' => 'Uložit a vypočítat pojmenovaná pole',
+);
+
 /** Welsh (Cymraeg)
  * @author Pwyll
  */
@@ -112,6 +119,13 @@ $messages['diq'] = array(
  */
 $messages['dsb'] = array(
 	'arrays-desc' => 'Zmóžnja składowanje a woblicenje pomjenjonych pólowych wariablow',
+);
+
+/** Esperanto (Esperanto)
+ * @author Blahma
+ */
+$messages['eo'] = array(
+	'arrays-desc' => 'Memori kaj komputi nomitajn arejojn',
 );
 
 /** Spanish (español)

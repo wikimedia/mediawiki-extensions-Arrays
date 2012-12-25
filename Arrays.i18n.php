@@ -121,6 +121,13 @@ $messages['dsb'] = array(
 	'arrays-desc' => 'Zmóžnja składowanje a woblicenje pomjenjonych pólowych wariablow',
 );
 
+/** Greek (Ελληνικά)
+ * @author Protnet
+ */
+$messages['el'] = array(
+	'arrays-desc' => 'Αποθήκευση και υπολογισμοί σε ονοματισμένες μεταβλητές-πίνακες',
+);
+
 /** Esperanto (Esperanto)
  * @author Blahma
  */

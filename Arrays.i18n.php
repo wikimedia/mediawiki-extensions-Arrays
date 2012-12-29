@@ -268,6 +268,13 @@ $messages['lus'] = array(
 	'arrays-desc' => 'Inremna dahţhatna leh chhûtna',
 );
 
+/** Basa Banyumasan (Basa Banyumasan)
+ * @author StefanusRA
+ */
+$messages['map-bms'] = array(
+	'arrays-desc' => 'Nyimpen lan ngitung larik sing dijenengi',
+);
+
 /** Macedonian (македонски)
  * @author Bjankuloski06
  */

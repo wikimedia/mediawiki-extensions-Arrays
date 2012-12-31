@@ -346,6 +346,13 @@ $messages['ru'] = array(
 	'arrays-desc' => 'Хранение и вычисление именованных массивов',
 );
 
+/** Sinhala (සිංහල)
+ * @author පසිඳු කාවින්ද
+ */
+$messages['si'] = array(
+	'arrays-desc' => 'නම්ගත ආයිත්තම් ගබඩා කරන්න සහ පරිගණක ගත කරන්න',
+);
+
 /** Slovak (slovenčina)
  * @author Helix84
  */
@@ -358,6 +365,13 @@ $messages['sk'] = array(
  */
 $messages['sl'] = array(
 	'arrays-desc' => 'Shrani in izračuna imenovana polja',
+);
+
+/** Serbian (Cyrillic script) (српски (ћирилица)‎)
+ * @author Rancher
+ */
+$messages['sr-ec'] = array(
+	'arrays-desc' => 'Смешта и рачуна именоване низове',
 );
 
 /** Swedish (svenska)

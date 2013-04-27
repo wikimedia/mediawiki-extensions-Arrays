@@ -58,6 +58,13 @@ $messages['ba'] = array(
 	'arrays-desc' => 'Исемләнгән массивтарҙы һаҡлау һәм иҫәпләү',
 );
 
+/** Bikol Central (Bikol Central)
+ * @author Geopoet
+ */
+$messages['bcl'] = array(
+	'arrays-desc' => 'Sarayon asin kompyutaron an pinagngaranang nakahilira',
+);
+
 /** Belarusian (Taraškievica orthography) (беларуская (тарашкевіца)‎)
  * @author EugeneZelenko
  */

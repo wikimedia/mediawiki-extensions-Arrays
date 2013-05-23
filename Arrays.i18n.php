@@ -417,6 +417,13 @@ $messages['vep'] = array(
 	'arrays-desc' => 'Varata da lugeda nimitadud massivad',
 );
 
+/** Vietnamese (Tiếng Việt)
+ * @author Tuankiet65
+ */
+$messages['vi'] = array(
+	'arrays-desc' => 'Lưu trữ và xử lí các mảng',
+);
+
 /** Simplified Chinese (中文（简体）‎)
  * @author Hydra
  */

@@ -418,10 +418,11 @@ $messages['vep'] = array(
 );
 
 /** Vietnamese (Tiếng Việt)
+ * @author Minh Nguyen
  * @author Tuankiet65
  */
 $messages['vi'] = array(
-	'arrays-desc' => 'Lưu trữ và xử lí các mảng',
+	'arrays-desc' => 'Lưu trữ và xử lý các mảng',
 );
 
 /** Simplified Chinese (中文（简体）‎)

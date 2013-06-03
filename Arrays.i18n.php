@@ -296,7 +296,7 @@ $messages['ms'] = array(
 	'arrays-desc' => 'Menyimpan dan mengira tatasusunan bernama',
 );
 
-/** Norwegian Bokmål (norsk (bokmål)‎)
+/** Norwegian Bokmål (norsk bokmål)
  * @author Nghtwlkr
  */
 $messages['nb'] = array(

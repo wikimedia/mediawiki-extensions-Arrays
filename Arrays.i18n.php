@@ -86,7 +86,7 @@ $messages['bs'] = array(
 	'arrays-desc' => 'Sačuvaj i izračunaj imenovane nizove',
 );
 
-/** Czech (česky)
+/** Czech (čeština)
  * @author Paxt
  */
 $messages['cs'] = array(

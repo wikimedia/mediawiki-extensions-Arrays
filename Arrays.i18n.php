@@ -86,6 +86,13 @@ $messages['bs'] = array(
 	'arrays-desc' => 'Sačuvaj i izračunaj imenovane nizove',
 );
 
+/** Catalan (català)
+ * @author Alvaro Vidal-Abarca
+ */
+$messages['ca'] = array(
+	'arrays-desc' => 'Emmagatzemar i calcular matrius amb nom',
+);
+
 /** Czech (čeština)
  * @author Paxt
  */

@@ -244,7 +244,7 @@ $messages['ja'] = array(
  * @author 아라
  */
 $messages['ko'] = array(
-	'arrays-desc' => '배열이라는 이름에 저장하고 계산',
+	'arrays-desc' => '연관된 배열을 저장하고 계산합니다',
 );
 
 /** Colognian (Ripoarisch)

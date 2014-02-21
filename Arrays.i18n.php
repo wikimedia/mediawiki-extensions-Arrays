@@ -360,6 +360,13 @@ $messages['ru'] = array(
 	'arrays-desc' => 'Хранение и вычисление именованных массивов',
 );
 
+/** Scots (Scots)
+ * @author John Reid
+ */
+$messages['sco'] = array(
+	'arrays-desc' => 'Store an compute named arrays',
+);
+
 /** Sinhala (සිංහල)
  * @author පසිඳු කාවින්ද
  */

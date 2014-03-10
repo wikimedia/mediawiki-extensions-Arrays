@@ -364,7 +364,7 @@ $messages['ru'] = array(
  * @author John Reid
  */
 $messages['sco'] = array(
-	'arrays-desc' => 'Store an compute named arrays',
+	'arrays-desc' => 'Store n compute named arreys',
 );
 
 /** Sinhala (සිංහල)

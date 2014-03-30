@@ -29,6 +29,7 @@ $wgExtensionCredits['parserhook'][] = array(
 	'version'        => ExtArrays::VERSION
 );
 
+$wgMessagesDirs['Arrays'] = __DIR__ . '/i18n';
 $wgExtensionMessagesFiles['Arrays'     ] = ExtArrays::getDir() . '/Arrays.i18n.php';
 $wgExtensionMessagesFiles['ArraysMagic'] = ExtArrays::getDir() . '/Arrays.i18n.magic.php';
 
@@ -66,14 +67,14 @@ class ExtArrays {
 	 * @private
 	 */
 	var $mArrays = array();
-	
+
 	/**
 	 * Default separator for '#arrayprint'. Might be ', ' in compatibility-mode or
 	 * by default since Arrays 2.0 the languages comma separator.
-	 * 
+	 *
 	 * @since 2.0
-	 * 
-	 * @var string 
+	 *
+	 * @var string
 	 */
 	static $mDefaultSep;
 
@@ -90,7 +91,7 @@ class ExtArrays {
 		 * other extensions. (since v2.0)
 		 */
 		$parser->mExtArrays = new self();
-		
+
 		// initialize default separator for '#arrayprint'
 		if( $egArraysCompatibilityMode ) {
 			// COMPATIBILITY-MODE
@@ -213,7 +214,7 @@ class ExtArrays {
 				// unique like the parser function would do it
 				$array = self::array_unique( $array );
 			}
-			
+
 			// if 'singleempty' is NOT set, {{#arraydefine:a|}} will be empty.
 			// by default this would give an empty array (due to historical as well as usability reasons)
 			if( ! array_key_exists( 'singleempty', $arrayOptions ) ) {
@@ -262,7 +263,7 @@ class ExtArrays {
 					break;
 			}
 		}
-		
+
 		self::get( $parser )->setArray( $arrayId, $array );
 
 		return $out;
@@ -291,7 +292,7 @@ class ExtArrays {
 	*/
 	static function pfObj_arrayprint( Parser &$parser, PPFrame $frame, $args ) {
 		global $egArraysCompatibilityMode, $egArraysExpansionEscapeTemplates;
-		
+
 		// Get Parameters
 		$arrayId   = isset( $args[0] ) ? trim( $frame->expand( $args[0] ) ) : '';
 		$delimiter = isset( $args[1] ) ? trim( $frame->expand( $args[1] ) ) : self::$mDefaultSep;
@@ -312,7 +313,7 @@ class ExtArrays {
 		$array = self::get( $parser )->getArray( $arrayId );
 
 		if( $array === null ) {
-			// array we want to print doesn't exist!			
+			// array we want to print doesn't exist!
 			if( ! $egArraysCompatibilityMode ) {
 				return '';
 			} else {
@@ -320,10 +321,10 @@ class ExtArrays {
 				return "undefined array: $arrayId";
 			}
 		}
-		
+
 		// if there is no subject, there is no point in expanding. Faster!
 		if( $subject === null ) {
-			if( ! $egArraysCompatibilityMode && $egArraysExpansionEscapeTemplates !== null ) {				
+			if( ! $egArraysCompatibilityMode && $egArraysExpansionEscapeTemplates !== null ) {
 				// we can ignore options here, since if subject is null, options won't be set as well!
 				return trim( implode( $delimiter, $array ) );
 			} else {
@@ -336,7 +337,7 @@ class ExtArrays {
 		$rendered_values = array();
 
 		foreach( $array as $val ) {
-					
+
 			if( ! $egArraysCompatibilityMode ) {
 				// NO COMPATIBILITY-MODE
 				/**
@@ -362,7 +363,7 @@ class ExtArrays {
 			case 'pretty':
 				// pretty list print with ' and ' connecting the last two items
 				if( $delimiter === '' ) {
-					// '' as delimiter isn't pretty, so in this case we take the (languages) default					
+					// '' as delimiter isn't pretty, so in this case we take the (languages) default
 					$output = self::arrayToText( $rendered_values );
 				} else {
 					$output = self::arrayToText( $rendered_values, $delimiter );
@@ -374,7 +375,7 @@ class ExtArrays {
 				$output = implode( $delimiter, $rendered_values );
 				break;
 		}
-		
+
 		if( $egArraysCompatibilityMode || $egArraysExpansionEscapeTemplates === null ) {
 			// COMPATIBLITY-MODE:
 			/*
@@ -526,11 +527,11 @@ class ExtArrays {
 	*/
 	static function pfObj_arraysearcharray( Parser &$parser, PPFrame $frame, $args ) {
 		$store = self::get( $parser );
-		
+
 		// get first two parameters
 		$arrayId = isset( $args[1] ) ? trim( $frame->expand( $args[1] ) ) : null;
 		$arrayId_new  = isset( $args[0] ) ? trim( $frame->expand( $args[0] ) ) : '';
-		
+
 		if( $arrayId === null ) {
 			global $egArraysCompatibilityMode;
 			if( ! $egArraysCompatibilityMode ) { // COMPATIBILITY-MODE
@@ -538,13 +539,13 @@ class ExtArrays {
 			}
 			return '';
 		}
-		
+
 		// Get Parameters the other parameters
 		$needle       = isset( $args[2] ) ? trim( $frame->expand( $args[2] ) ) : '/^(\s*)$/';
 		$index        = isset( $args[3] ) ? trim( $frame->expand( $args[3] ) ) : 0;
 		$limit        = isset( $args[4] ) ? trim( $frame->expand( $args[4] ) ) : '';
 		$rawTransform = isset( $args[5] ) ? $args[5] : null;
-		
+
 		// also takes care of negative index by calculating start index:
 		$validIndex = $store->validate_array_index( $arrayId, $index, false );
 
@@ -1202,7 +1203,7 @@ class ExtArrays {
 	 *        - asce:    sort array in ascending order.
 	 *        - desc:    sort array in descending order.
 	 *        - natural: sort with a 'natural order' algorithm. See PHPs natsort() function.
-	 * 
+	 *
 	 *        In addition, this function allows to set several flags behind the sort mode. The must be
 	 *        separated by a space. The following keys are allowed:
 	 *        - nolocale: will prevent 'asce' and 'desc' mode to considering PHP-defined language rules.
@@ -1211,20 +1212,20 @@ class ExtArrays {
 	 */
 	public static function arraySort( array $array, $sortMode ) {
 		global $egArraysCompatibilityMode;
-		
+
 		$flags = preg_split( '/\s+/s', $sortMode );
 		$sortMode = array_shift( $flags ); // first string is the actual sort mode
-		
+
 		$localeFlag = SORT_LOCALE_STRING; // sort strings accordingly to what was set via setlocale()
 		if(
 			in_array( 'nolocale', $flags )
-			|| $egArraysCompatibilityMode // COMPATIBILITY-MODE			
+			|| $egArraysCompatibilityMode // COMPATIBILITY-MODE
 		) {
 			// 'nolocale' will prevent from using this flag!
 			$localeFlag = null;
 		}
-		
-		// do the requested sorting of the given array:		
+
+		// do the requested sorting of the given array:
 		switch( $sortMode ) {
 			case 'asc':
 			case 'asce':
@@ -1236,12 +1237,12 @@ class ExtArrays {
 			case 'descending':
 				rsort( $array, $localeFlag );
 				break;
-			
+
 			case 'nat':
 			case 'natural':
 				natsort( $array );
 				break;
-			
+
 			case 'rand':
 			case 'random':
 				shuffle( $array );
@@ -1253,15 +1254,15 @@ class ExtArrays {
 		};
 		return $array;
 	}
-	
+
 	/**
 	 * Pretty much the same as Language::listToText() but allows us to set a custom comma separator.
-	 * 
+	 *
 	 * @since 2.0
-	 * 
+	 *
 	 * @param Array  $array
 	 * @param string $commaSep
-	 * 
+	 *
 	 * @return string
 	 */
 	public static function arrayToText( $array, $commaSep = null ) {
@@ -1284,31 +1285,31 @@ class ExtArrays {
 			return $s;
 		}
 	}
-	
+
 	/**
 	 * Escapes a string so it can be used within PPFrame::expand() expansion without actually being
 	 * changed because of special characters.
 	 * Respects the configuration variable '$egArraysEscapeTemplates'.
-	 * 
+	 *
 	 * This is a workaround for bug #32829
-	 * 
+	 *
 	 * @since 2.0
-	 * 
+	 *
 	 * @param string $string
 	 * @return string
 	 */
 	public static function escapeForExpansion( $string ) {
 		global $egArraysExpansionEscapeTemplates;
-		
+
 		if( $egArraysExpansionEscapeTemplates === null ) {
 			return $string;
 		}
-		
+
 		$string = strtr(
 			$string,
-			$egArraysExpansionEscapeTemplates		
+			$egArraysExpansionEscapeTemplates
 		);
-		
+
 		return $string;
 	}
 

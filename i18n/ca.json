@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Alvaro Vidal-Abarca"
-        ]
-    },
-    "arrays-desc": "Emmagatzemar i calcular matrius amb nom"
+	"@metadata": {
+		"authors": [
+			"Alvaro Vidal-Abarca"
+		]
+	},
+	"arrays-desc": "Emmagatzemar i calcular matrius amb nom"
 }

@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Hamilton Abreu"
-        ]
-    },
-    "arrays-desc": "Armazenar e calcular matrizes designadas"
+	"@metadata": {
+		"authors": [
+			"Hamilton Abreu"
+		]
+	},
+	"arrays-desc": "Armazenar e calcular matrizes designadas"
 }

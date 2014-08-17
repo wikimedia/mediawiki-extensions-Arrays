@@ -66,7 +66,7 @@ class ExtArrays {
 	 * @var array
 	 * @private
 	 */
-	var $mArrays = array();
+	public $mArrays = array();
 
 	/**
 	 * Default separator for '#arrayprint'. Might be ', ' in compatibility-mode or

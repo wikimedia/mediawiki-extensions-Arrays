@@ -104,27 +104,27 @@ class ExtArrays {
 			self::$mDefaultSep = $wgLang->getMessageFromDB( 'comma-separator' );
 		}
 
-		// SFH_OBJECT_ARGS available since MW 1.12
+		// Parser::SFH_OBJECT_ARGS available since MW 1.12
 		self::initFunction( $parser, 'arraydefine' );
-		self::initFunction( $parser, 'arrayprint', SFH_OBJECT_ARGS );
-		self::initFunction( $parser, 'arrayindex', SFH_OBJECT_ARGS );
+		self::initFunction( $parser, 'arrayprint', Parser::SFH_OBJECT_ARGS );
+		self::initFunction( $parser, 'arrayindex', Parser::SFH_OBJECT_ARGS );
 		self::initFunction( $parser, 'arraysize' );
-		self::initFunction( $parser, 'arraysearch', SFH_OBJECT_ARGS );
-		self::initFunction( $parser, 'arraysearcharray', SFH_OBJECT_ARGS );
+		self::initFunction( $parser, 'arraysearch', Parser::SFH_OBJECT_ARGS );
+		self::initFunction( $parser, 'arraysearcharray', Parser::SFH_OBJECT_ARGS );
 		self::initFunction( $parser, 'arrayslice' );
-		self::initFunction( $parser, 'arrayreset', SFH_OBJECT_ARGS );
+		self::initFunction( $parser, 'arrayreset', Parser::SFH_OBJECT_ARGS );
 		self::initFunction( $parser, 'arrayunique' );
 		self::initFunction( $parser, 'arraysort' );
-		self::initFunction( $parser, 'arraymerge', SFH_OBJECT_ARGS );
-		self::initFunction( $parser, 'arrayunion', SFH_OBJECT_ARGS );
-		self::initFunction( $parser, 'arraydiff', SFH_OBJECT_ARGS );
-		self::initFunction( $parser, 'arrayintersect', SFH_OBJECT_ARGS );
+		self::initFunction( $parser, 'arraymerge', Parser::SFH_OBJECT_ARGS );
+		self::initFunction( $parser, 'arrayunion', Parser::SFH_OBJECT_ARGS );
+		self::initFunction( $parser, 'arraydiff', Parser::SFH_OBJECT_ARGS );
+		self::initFunction( $parser, 'arrayintersect', Parser::SFH_OBJECT_ARGS );
 
 		return true;
 	}
 	private static function initFunction( Parser &$parser, $name, $flags = 0 ) {
 		// all parser functions with prefix:
-		$prefix = ( $flags & SFH_OBJECT_ARGS ) ? 'pfObj_' : 'pf_';
+		$prefix = ( $flags & Parser::SFH_OBJECT_ARGS ) ? 'pfObj_' : 'pf_';
 		$functionCallback = array( __CLASS__, $prefix . $name );
 
 		$parser->setFunctionHook( $name, $functionCallback, $flags );

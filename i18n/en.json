@@ -1,8 +1,8 @@
 {
-    "@metadata": {
-        "authors": [
-            "Jeroen De Dauw"
-        ]
-    },
-    "arrays-desc": "Store and compute named arrays"
+	"@metadata": {
+		"authors": [
+			"Jeroen De Dauw"
+		]
+	},
+	"arrays-desc": "Store and compute named arrays"
 }

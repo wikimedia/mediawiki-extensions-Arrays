@@ -533,6 +533,8 @@ ArrayTests:arraysearcharray
 
 !! test
 Using Subpage Fun extension with 'e' modifier
+!! options
+disabled
 !! input
 "{{
 ArrayTests:arraysearcharray

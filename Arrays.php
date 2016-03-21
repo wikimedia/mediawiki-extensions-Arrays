@@ -3,9 +3,9 @@
 /**
  * Initialization file for the 'Arrays' (former 'ArrayExtension') extension.
  *
- * Documentation: http://www.mediawiki.org/wiki/Extension:Arrays
- * Support:       http://www.mediawiki.org/wiki/Extension_talk:Arrays
- * Source code:   http://svn.wikimedia.org/viewvc/mediawiki/trunk/extensions/Arrays
+ * Documentation: https://www.mediawiki.org/wiki/Extension:Arrays
+ * Support:       https://www.mediawiki.org/wiki/Extension_talk:Arrays
+ * Source code:   https://git.wikimedia.org/summary/mediawiki%2Fextensions%2FArrays
  *
  * @file
  * @ingroup Arrays
@@ -24,8 +24,13 @@ $wgExtensionCredits['parserhook'][] = array(
 	'path'           => __FILE__,
 	'name'           => 'Arrays',
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:Arrays',
-	'author'         => array ( 'Li Ding', 'Jie Bao', '[http://www.mediawiki.org/wiki/User:Danwe Daniel Werner]' ),
+	'author'         => array(
+		'Li Ding',
+		'Jie Bao',
+		'[https://www.mediawiki.org/wiki/User:Danwe Daniel Werner]'
+	),
 	'descriptionmsg' => 'arrays-desc',
+	'license-name'   => 'MIT',
 	'version'        => ExtArrays::VERSION
 );
 

@@ -5,13 +5,13 @@
  *
  * Documentation: https://www.mediawiki.org/wiki/Extension:Arrays
  * Support:       https://www.mediawiki.org/wiki/Extension_talk:Arrays
- * Source code:   https://git.wikimedia.org/summary/mediawiki%2Fextensions%2FArrays
+ * Source code:   https://gerrit.wikimedia.org/r/p/mediawiki/extensions/Arrays
  *
  * @file
  * @ingroup Arrays
  *
  * @licence MIT License
- * @version: 2.0rc3 alpha
+ * @version: 2.1.0
  *
  * @author Li Ding < lidingpku@gmail.com >
  * @author Jie Bao
@@ -34,8 +34,8 @@ $wgExtensionCredits['parserhook'][] = array(
 	'version'        => ExtArrays::VERSION
 );
 
+// Internationalization
 $wgMessagesDirs['Arrays'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['Arrays'     ] = ExtArrays::getDir() . '/Arrays.i18n.php';
 $wgExtensionMessagesFiles['ArraysMagic'] = ExtArrays::getDir() . '/Arrays.i18n.magic.php';
 
 // hooks registration:
@@ -63,7 +63,7 @@ class ExtArrays {
 	 *
 	 * @since 2.0 (before in 'Arrays' class since 1.3.2)
 	 */
-	const VERSION = '2.0rc3 alpha';
+	const VERSION = '2.1.0';
 
 	/**
 	 * Store for arrays.

@@ -18,13 +18,7 @@ Template:))
 !!article
 Template:=
 !!text
-=
-!!endarticle
-
-!!article
-Template:!
-!!text
-|
+<nowiki>=</nowiki>
 !!endarticle
 
 

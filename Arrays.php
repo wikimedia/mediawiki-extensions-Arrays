@@ -104,9 +104,7 @@ class ExtArrays {
 		}
 		else {
 			// since 2.0 the default separator for arrayprint is set to the languages default
-			global $wgLang;
-			$wgLang->getMessageFromDB( 'comma-separator' );
-			self::$mDefaultSep = $wgLang->getMessageFromDB( 'comma-separator' );
+			self::$mDefaultSep = wfMessage( 'comma-separator' )->inContentLanguage()->text();
 		}
 
 		// Parser::SFH_OBJECT_ARGS available since MW 1.12

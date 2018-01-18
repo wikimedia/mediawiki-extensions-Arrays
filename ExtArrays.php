@@ -11,9 +11,9 @@ class ExtArrays {
 	/**
 	 * Version of the 'Arrays' extension.
 	 *
-	 * @since 2.0 (before in 'Arrays' class since 1.3.2)
+	 * Note: This should be kept synchronised with the version in extension.json.
 	 */
-	const VERSION = '2.1.0';
+	const VERSION = '2.2.0';
 
 	/**
 	 * Store for arrays.

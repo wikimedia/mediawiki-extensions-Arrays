@@ -380,7 +380,7 @@ class ExtArrays {
 		}
 
 		if( $egArraysCompatibilityMode || $egArraysExpansionEscapeTemplates === null ) {
-			// COMPATIBLITY-MODE:
+			// COMPATIBILITY-MODE:
 			/*
 			 * don't leave the final parse to Parser::braceSubstitution() since there are some special cases where it
 			 * would produce unexpected output (it uses a new child frame and ignores whether the frame is a template!)

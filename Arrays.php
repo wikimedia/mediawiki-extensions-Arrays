@@ -10,7 +10,7 @@
  * @file
  * @ingroup Arrays
  *
- * @license MIT License
+ * @license MIT
  * @version: 2.1.0
  *
  * @author Li Ding < lidingpku@gmail.com >
@@ -826,7 +826,7 @@ class ExtArrays {
 	 * @param $operationFunc string name of the function calling this. There must be a counterpart
 	 *        function with prefix 'multi_' which should have two parameters. Both parameters
 	 *        will receive an array, the function must return the result array of the processing.
-	 * @param $runFuncOnSingleArray boolean whether the $operationFunc function should be run in case
+	 * @param $runFuncOnSingleArray boolean whether the operationFunc function should be run in case
 	 *        only one array id is given. If not, the original array will end up in the new array.
 	 */
 	protected function multiArrayOperation( PPFrame $frame, array $args, $operationFunc, $runFuncOnSingleArray = true ) {
@@ -834,9 +834,10 @@ class ExtArrays {
 		$operationRan = false;
 		$finalArrayId = trim( $frame->expand( $args[0] ) );
 		$operationFunc = 'multi_' . preg_replace( '/^pfObj_/', '', $operationFunc );
+		$length = count( $args );
 
 		// For all arrays given in parameters 2 to n (ignore 1 because this is the name of the new array)
-		for ( $i = 1; $i < count( $args ); $i++ ) {
+		for ( $i = 1; $i < $length; $i++ ) {
 			// just make sure we don't fall into gaps of given arguments:
 			if ( ! array_key_exists( $i, $args ) ) {
 				continue;
@@ -1147,7 +1148,7 @@ class ExtArrays {
 	 *
 	 * @since 2.0
 	 *
-	 * @param array $arr array to be reorganized
+	 * @param array $array array to be reorganized
 	 * @return array
 	 */
 	public static function sanitizeArray( $array ) {

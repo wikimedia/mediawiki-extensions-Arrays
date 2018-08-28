@@ -6,7 +6,7 @@
  * @file
  * @ingroup Arrays
  *
- * @license MIT License
+ * @license MIT
  */
 
 $magicWords = [];

@@ -101,8 +101,7 @@ class ExtArrays {
 		if( $egArraysCompatibilityMode ) {
 			// COMPATIBILITY-MODE
 			self::$mDefaultSep = ', ';
-		}
-		else {
+		} else {
 			// since 2.0 the default separator for arrayprint is set to the languages default
 			self::$mDefaultSep = wfMessage( 'comma-separator' )->inContentLanguage()->text();
 		}
@@ -187,15 +186,13 @@ class ExtArrays {
 		if( $value === null ) {
 			// no element set, not even an empty one
 			$array = [];
-		}
-		else {
+		} else {
 			// fill array with user input:
 			if( $delimiter === '' ) {
 				// whole input one element, also takes care of special case empty '' value and 'unique' option set
 				$array = [ $value ];
 				$trimDone = true;
-			}
-			else {
+			} else {
 				// if no regex delimiter given, build one:
 				if( ! self::isValidRegEx( $delimiter ) ) {
 					$delimiter = '/\s*' . preg_quote( $delimiter, '/' ) . '\s*/';
@@ -484,8 +481,7 @@ class ExtArrays {
 				if ( ! self::isValidRegEx( $needle ) ) {
 					$needle = '/^\s*' . preg_quote( trim( $needle ), '/' ) . '\s*$/';
 				}
-			}
-			else {
+			} else {
 				$needle = '/^\s*$/';
 			}
 
@@ -499,8 +495,7 @@ class ExtArrays {
 					if ( isset( $args[3] ) ) {
 						// Expand only when needed!
 						return trim( $frame->expand( $args[3] ) );
-					}
-					else {
+					} else {
 						// return index of first found item
 						return $i;
 					}
@@ -599,8 +594,7 @@ class ExtArrays {
 								$frame,
 								[ ExtRegexFun::FLAG_REPLACEMENT_PARSE ]
 						);
-					}
-					else {
+					} else {
 						// regular preg_replace:
 						$transform = trim( $frame->expand( $rawTransform ) );
 						$value = preg_replace( $needle, $transform, $value );
@@ -688,8 +682,7 @@ class ExtArrays {
 		if( ! isset( $args[0] ) || ( $args[0] === '' && count( $args ) == 1 ) ) {
 			// reset ALL arrays!
 			$store->mArrays = [];
-		}
-		else {
+		} else {
 			// reset specific hash tables:
 			foreach( $args as $arg ) {
 				$arrayId = trim( $frame->expand( $arg ) );
@@ -865,8 +858,7 @@ class ExtArrays {
 				if( $lastArray === null ) {
 					// first valid array, process together with second...
 					$lastArray = $argArray;
-				}
-				else {
+				} else {
 					// second or later hash table, process with previous:
 					$lastArray = $this->{ $operationFunc }( $lastArray, $argArray ); // perform action between last and current array
 					$operationRan = true;
@@ -1137,8 +1129,7 @@ class ExtArrays {
 			&& array_key_exists( $index, $this->mArrays[ $arrayId ] )
 		) {
 			return $this->mArrays[ $arrayId ][ $index ];
-		}
-		else {
+		} else {
 			return $default;
 		}
 	}

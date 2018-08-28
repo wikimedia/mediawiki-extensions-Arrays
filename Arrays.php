@@ -249,7 +249,7 @@ class ExtArrays {
 			}
 			 */
 
-            // sort array if the option is set
+			// sort array if the option is set
 			if( array_key_exists( 'sort', $arrayOptions ) ) {
 				$array = self::arraySort( $array, self::array_value( $arrayOptions, 'sort' ) );
 			}

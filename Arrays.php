@@ -1256,7 +1256,7 @@ class ExtArrays {
 			for ( $i = $m; $i >= 0; $i-- ) {
 				if ( $i == $m ) {
 					$s = $array[$i];
-				} else if ( $i == $m - 1 ) {
+				} elseif ( $i == $m - 1 ) {
 					$s = $array[$i] . $wgLang->getMessageFromDB( 'and' ) . $wgLang->getMessageFromDB( 'word-separator' ) . $s;
 				} else {
 					$s = $array[$i] . $commaSep . $s;

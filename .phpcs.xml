@@ -17,7 +17,6 @@
 		<exclude name="PSR2.Classes.PropertyDeclaration.ScopeMissing" />
 		<exclude name="Squiz.Scope.MemberVarScope.Missing" />
 		<exclude name="Squiz.Scope.MethodScope.Missing" />
-		<exclude name="Squiz.WhiteSpace.ScopeClosingBrace.ContentBefore" />
 	</rule>
 	<file>.</file>
 	<arg name="extensions" value="php,php5,inc"/>

@@ -18,7 +18,9 @@
  * @author Daniel Werner < danweetz@web.de > (since version 1.3)
  */
 
-if ( ! defined( 'MEDIAWIKI' ) ) { die(); }
+if ( ! defined( 'MEDIAWIKI' ) ) {
+	die();
+};
 
 $wgExtensionCredits['parserhook'][] = [
 	'path'           => __FILE__,

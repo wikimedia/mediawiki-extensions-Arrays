@@ -10,7 +10,7 @@
  * @file
  * @ingroup Arrays
  *
- * @licence MIT License
+ * @license MIT License
  * @version: 2.1.0
  *
  * @author Li Ding < lidingpku@gmail.com >
@@ -158,14 +158,14 @@ class ExtArrays {
 	///////////////////////////////////////////////////////////
 
 	/**
-	* Define an array by a list of 'values' deliminated by 'delimiter',
-	* the delimiter should be perl regular expression pattern
-	* usage:
-	*      {{#arraydefine:arrayid|values|delimiter|options}}
-	*
-	* http://us2.php.net/manual/en/book.pcre.php
-	* see also: http://us2.php.net/manual/en/function.preg-split.php
-	*/
+	 * Define an array by a list of 'values' deliminated by 'delimiter',
+	 * the delimiter should be perl regular expression pattern
+	 * usage:
+	 *      {{#arraydefine:arrayid|values|delimiter|options}}
+	 *
+	 * http://us2.php.net/manual/en/book.pcre.php
+	 * see also: http://us2.php.net/manual/en/function.preg-split.php
+	 */
 	static function pf_arraydefine(
 			Parser &$parser,
 			$arrayId,
@@ -279,20 +279,20 @@ class ExtArrays {
 
 
 	/**
-	* print an array.
-	* foreach element of the array, print 'subject' where  all occurrences of 'search' is replaced with the element,
-	* and each element print-out is deliminated by 'delimiter'
-	* The subject can embed parser functions; wiki links; and templates.
-	* usage:
-	*      {{#arrayprint:arrayid|delimiter|search|subject|options}}
-	* examples:
-	*    {{#arrayprint:b}}    -- simple
-	*    {{#arrayprint:b|<br/>}}    -- add change line
-	*    {{#arrayprint:b|<br/>|@@@|[[@@@]]}}    -- embed wiki links
-	*    {{#arrayprint:b|<br/>|@@@|{{#set:prop=@@@}} }}   -- embed parser function
-	*    {{#arrayprint:b|<br/>|@@@|{{f.tag{{f.print.vbar}}prop{{f.print.vbar}}@@@}} }}   -- embed template function
-	*    {{#arrayprint:b|<br/>|@@@|[[name::@@@]]}}   -- make SMW links
-	*/
+	 * print an array.
+	 * foreach element of the array, print 'subject' where  all occurrences of 'search' is replaced with the element,
+	 * and each element print-out is deliminated by 'delimiter'
+	 * The subject can embed parser functions; wiki links; and templates.
+	 * usage:
+	 *      {{#arrayprint:arrayid|delimiter|search|subject|options}}
+	 * examples:
+	 *    {{#arrayprint:b}}    -- simple
+	 *    {{#arrayprint:b|<br/>}}    -- add change line
+	 *    {{#arrayprint:b|<br/>|@@@|[[@@@]]}}    -- embed wiki links
+	 *    {{#arrayprint:b|<br/>|@@@|{{#set:prop=@@@}} }}   -- embed parser function
+	 *    {{#arrayprint:b|<br/>|@@@|{{f.tag{{f.print.vbar}}prop{{f.print.vbar}}@@@}} }}   -- embed template function
+	 *    {{#arrayprint:b|<br/>|@@@|[[name::@@@]]}}   -- make SMW links
+	 */
 	static function pfObj_arrayprint( Parser &$parser, PPFrame $frame, $args ) {
 		global $egArraysCompatibilityMode, $egArraysExpansionEscapeTemplates;
 
@@ -393,10 +393,10 @@ class ExtArrays {
 	}
 
 	/**
-	* print the value of an array (identified by arrayid)  by the index, invalid index results in the default value  being printed. note the index is 0-based.
-	* usage:
-	*   {{#arrayindex:arrayid|index}}
-	*/
+	 * print the value of an array (identified by arrayid)  by the index, invalid index results in the default value  being printed. note the index is 0-based.
+	 * usage:
+	 *   {{#arrayindex:arrayid|index}}
+	 */
 	static function pfObj_arrayindex( Parser &$parser, PPFrame $frame, $args ) {
 		global $egArraysCompatibilityMode;
 
@@ -435,13 +435,13 @@ class ExtArrays {
 	}
 
 	/**
-	* returns the size of an array.
-	* Print the size (number of elements) in the specified array and '' if array doesn't exist
-	* usage:
-	*   {{#arraysize:arrayid}}
-	*
-	*   See: http://www.php.net/manual/en/function.count.php
-	*/
+	 * returns the size of an array.
+	 * Print the size (number of elements) in the specified array and '' if array doesn't exist
+	 * usage:
+	 *   {{#arraysize:arrayid}}
+	 *
+	 *   See: http://www.php.net/manual/en/function.count.php
+	 */
 	static function pf_arraysize( Parser &$parser, $arrayId ) {
 		$store = self::get( $parser );
 
@@ -454,16 +454,16 @@ class ExtArrays {
 
 
 	/**
-	* locate the index of the first occurrence of an element starting from the 'index'
-	*    - print "-1" (not found) or index (found) to show the index of the first occurrence of 'value' in the array identified by arrayid
-	*    - if 'yes' and 'no' are set, print value of them when found or not-found
-	*    - index is 0-based , it must be non-negative and less than lenth
-	* usage:
-	*   {{#arraysearch:arrayid|value|index|yes|no}}
-	*
-	*   See: http://www.php.net/manual/en/function.array-search.php
-	*   note it is extended to support regular expression match and index
-	*/
+	 * locate the index of the first occurrence of an element starting from the 'index'
+	 *    - print "-1" (not found) or index (found) to show the index of the first occurrence of 'value' in the array identified by arrayid
+	 *    - if 'yes' and 'no' are set, print value of them when found or not-found
+	 *    - index is 0-based , it must be non-negative and less than lenth
+	 * usage:
+	 *   {{#arraysearch:arrayid|value|index|yes|no}}
+	 *
+	 *   See: http://www.php.net/manual/en/function.array-search.php
+	 *   note it is extended to support regular expression match and index
+	 */
 	static function pfObj_arraysearch( Parser &$parser, PPFrame $frame, $args ) {
 		// Get Parameters
 		$arrayId = trim( $frame->expand( $args[0] ) );
@@ -521,13 +521,13 @@ class ExtArrays {
 	}
 
 	/**
-	* search an array and create a new array with all the results. Transforming the new entries before storing them is possible too.
-	* usage:
-	*   {{#arraysearcharray:arrayid_new|arrayid|needle|index|limit|transform}}
-	*
-	* "needle" can be a regular expression or a string search value. If "needle" is a regular expression, "transform" can contain
-	* "$n" where "n" stands for a number to access a variable from the regex result.
-	*/
+	 * search an array and create a new array with all the results. Transforming the new entries before storing them is possible too.
+	 * usage:
+	 *   {{#arraysearcharray:arrayid_new|arrayid|needle|index|limit|transform}}
+	 *
+	 * "needle" can be a regular expression or a string search value. If "needle" is a regular expression, "transform" can contain
+	 * "$n" where "n" stands for a number to access a variable from the regex result.
+	 */
 	static function pfObj_arraysearcharray( Parser &$parser, PPFrame $frame, $args ) {
 		$store = self::get( $parser );
 
@@ -621,13 +621,13 @@ class ExtArrays {
 	}
 
 	/**
-	* extract a slice from an array
-	* usage:
-	*     {{#arrayslice:arrayid_new|arrayid|offset|length}}
-	*
-	*    extract a slice from an  array
-	*    see: http://www.php.net/manual/en/function.array-slice.php
-	*/
+	 * extract a slice from an array
+	 * usage:
+	 *     {{#arrayslice:arrayid_new|arrayid|offset|length}}
+	 *
+	 *    extract a slice from an  array
+	 *    see: http://www.php.net/manual/en/function.array-slice.php
+	 */
 	static function pf_arrayslice( Parser &$parser, $arrayId_new, $arrayId = null , $offset = 0, $length = null ) {
 		$store = self::get( $parser );
 		if( $arrayId === null ) {
@@ -666,11 +666,11 @@ class ExtArrays {
 	///////////////////////////////////////////////////////////
 
 	/**
-	* reset some or all defined arrayes
-	* usage:
-	*    {{#arrayreset:}}
-	*    {{#arrayreset:arrayid1,arrayid2,...arrayidn}}
-	*/
+	 * reset some or all defined arrayes
+	 * usage:
+	 *    {{#arrayreset:}}
+	 *    {{#arrayreset:arrayid1,arrayid2,...arrayidn}}
+	 */
 	static function pfObj_arrayreset( Parser &$parser, PPFrame $frame, $args) {
 		global $egArraysCompatibilityMode;
 
@@ -909,12 +909,12 @@ class ExtArrays {
 	 * set to a negative value. In case $strictIndex is set to false, further transforming of
 	 * $index might be done - in the same cases normally the function would return false.
 	 *
-	 * @param string  $arrayId
-	 * @param mixed  &$index
-	 * @param bool    $strictIndex Whether non-numeric indexes and negative indexes which would
+	 * @param string $arrayId
+	 * @param mixed &$index
+	 * @param bool $strictIndex Whether non-numeric indexes and negative indexes which would
 	 *                end up out of range, below 0, should be set to 0 automatically.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	protected function validate_array_index( $arrayId, &$index, $strictIndex = false ) {
 		if( ! is_numeric( $index ) ) {
@@ -951,7 +951,7 @@ class ExtArrays {
 
 	/**
 	 * private function for validating array by name
-	 * @ToDo: get rid of this!
+	 * @todo get rid of this!
 	 * @deprecated
 	 */
 	protected function validate_array_by_arrayId( $arrayId ) {
@@ -1087,7 +1087,7 @@ class ExtArrays {
 	 * values in form of a string. The array will be sanitized internally.
 	 *
 	 * @param string $arrayId
-	 * @param array  $array
+	 * @param array $array
 	 */
 	public function createArray( $arrayId, $array = [] ) {
 		$array = self::sanitizeArray( $array );
@@ -1111,7 +1111,7 @@ class ExtArrays {
 	 *
 	 * @param string $arrayId
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	function arrayExists( $arrayId ) {
 		return array_key_exists( trim( $arrayId ), $this->mArrays );
@@ -1126,7 +1126,7 @@ class ExtArrays {
 	 *
 	 * @param string $arrayId
 	 * @param string $index
-	 * @param mixed  $default value to return in case the value doesn't exist. null by default.
+	 * @param mixed|null $default value to return in case the value doesn't exist. null by default.
 	 *
 	 * @return string|null
 	 */
@@ -1151,7 +1151,7 @@ class ExtArrays {
 	 *
 	 * @param string $arrayId
 	 *
-	 * @return boolean whether the array existed and has been removed
+	 * @return bool whether the array existed and has been removed
 	 */
 	public function unsetArray( $arrayId ) {
 		$arrayId = trim( $arrayId );
@@ -1263,8 +1263,8 @@ class ExtArrays {
 	 *
 	 * @since 2.0
 	 *
-	 * @param Array  $array
-	 * @param string $commaSep
+	 * @param Array $array
+	 * @param string|null $commaSep
 	 *
 	 * @return string
 	 */
@@ -1321,11 +1321,11 @@ class ExtArrays {
 	 * Arrays parser functions or not.
 	 *
 	 * @param string $pattern regular expression including delimiters and optional flags
-	 * @param bool   $forRegexFun whether the regular expression is inteded to be used with 'Regex Fun'
+	 * @param bool $forRegexFun whether the regular expression is inteded to be used with 'Regex Fun'
 	 *               if supported by the wikis infrastructure. In case 'Regex Fun' is not available,
 	 *               the default validation will be used.
 	 *
-	 * @return boolean
+	 * @return bool
 	 */
 	static function isValidRegEx( $pattern, $forRegexFun = false ) {
 		if( $forRegexFun && self::hasRegexFunSupport() ) {

@@ -20,19 +20,19 @@
 
 if ( ! defined( 'MEDIAWIKI' ) ) { die(); }
 
-$wgExtensionCredits['parserhook'][] = array(
+$wgExtensionCredits['parserhook'][] = [
 	'path'           => __FILE__,
 	'name'           => 'Arrays',
 	'url'            => 'https://www.mediawiki.org/wiki/Extension:Arrays',
-	'author'         => array(
+	'author'         => [
 		'Li Ding',
 		'Jie Bao',
 		'[https://www.mediawiki.org/wiki/User:Danwe Daniel Werner]'
-	),
+	],
 	'descriptionmsg' => 'arrays-desc',
 	'license-name'   => 'MIT',
 	'version'        => ExtArrays::VERSION
-);
+];
 
 // Internationalization
 $wgMessagesDirs['Arrays'] = __DIR__ . '/i18n';
@@ -71,7 +71,7 @@ class ExtArrays {
 	 * @var array
 	 * @private
 	 */
-	public $mArrays = array();
+	public $mArrays = [];
 
 	/**
 	 * Default separator for '#arrayprint'. Might be ', ' in compatibility-mode or
@@ -128,7 +128,7 @@ class ExtArrays {
 	private static function initFunction( Parser &$parser, $name, $flags = 0 ) {
 		// all parser functions with prefix:
 		$prefix = ( $flags & Parser::SFH_OBJECT_ARGS ) ? 'pfObj_' : 'pf_';
-		$functionCallback = array( __CLASS__, $prefix . $name );
+		$functionCallback = [ __CLASS__, $prefix . $name ];
 
 		$parser->setFunctionHook( $name, $functionCallback, $flags );
 	}
@@ -178,7 +178,7 @@ class ExtArrays {
 		}
 
 		$out = '';
-		$array = array();
+		$array = [];
 		$trimDone = false; // whether or not we can be sure that all array elements are trimmed
 
 		// normalize
@@ -186,13 +186,13 @@ class ExtArrays {
 
 		if( $value === null ) {
 			// no element set, not even an empty one
-			$array = array();
+			$array = [];
 		}
 		else {
 			// fill array with user input:
 			if( $delimiter === '' ) {
 				// whole input one element, also takes care of special case empty '' value and 'unique' option set
-				$array = array( $value );
+				$array = [ $value ];
 				$trimDone = true;
 			}
 			else {
@@ -223,7 +223,7 @@ class ExtArrays {
 			if( ! array_key_exists( 'singleempty', $arrayOptions ) ) {
 				// there is no other uncomplicated way than this to define a single empty elemented array currently!
 				if( count( $array ) === 1 && $array[0] === '' ) {
-					$array = array();
+					$array = [];
 				}
 			}
 
@@ -309,7 +309,7 @@ class ExtArrays {
 		// options array:
 		$options = isset( $args[4] )
 				? self::parse_options( $frame->expand( $args[4] ) )
-				: array();
+				: [];
 
 
 		// get array, null if non-existant:
@@ -337,7 +337,7 @@ class ExtArrays {
 			}
 		}
 
-		$rendered_values = array();
+		$rendered_values = [];
 
 		foreach( $array as $val ) {
 
@@ -567,7 +567,7 @@ class ExtArrays {
 			return '';
 		}
 
-		$newArr = array();
+		$newArr = [];
 
 		$regexFunSupport = self::hasRegexFunSupport();
 		if( ! self::isValidRegEx( $needle, $regexFunSupport ) ) {
@@ -597,7 +597,7 @@ class ExtArrays {
 								-1,
 								$parser,
 								$frame,
-								array( ExtRegexFun::FLAG_REPLACEMENT_PARSE )
+								[ ExtRegexFun::FLAG_REPLACEMENT_PARSE ]
 						);
 					}
 					else {
@@ -687,7 +687,7 @@ class ExtArrays {
 		// reset all hash tables if no specific tables are given:
 		if( ! isset( $args[0] ) || ( $args[0] === '' && count( $args ) == 1 ) ) {
 			// reset ALL arrays!
-			$store->mArrays = array();
+			$store->mArrays = [];
 		}
 		else {
 			// reset specific hash tables:
@@ -876,7 +876,7 @@ class ExtArrays {
 
 		// in case no array was given at all:
 		if( $lastArray === null ) {
-			$lastArray = array();
+			$lastArray = [];
 		}
 
 		global $egArraysCompatibilityMode;
@@ -993,13 +993,13 @@ class ExtArrays {
 	 */
 	protected static function parse_options( $options ) {
 		if( ! isset( $options ) ) {
-			return array();
+			return [];
 		}
 
 		// now parse the options, and do posterior process on the created array
 		$options = preg_split( '/\s*,\s*/', strtolower( trim( $options ) ) );
 
-		$ret = array();
+		$ret = [];
 		foreach( $options as $option ) {
 			$optPair = preg_split( '/\s*\=\s*/', $option, 2 );
 			if( sizeof( $optPair ) == 1 ) {
@@ -1018,7 +1018,7 @@ class ExtArrays {
 		// delete duplicate values
 		$array = array_unique( $array );
 
-		$values = array();
+		$values = [];
 		foreach( $array as $key => $val ) {
 			// don't put emty elements into the array
 			if( $val !== '' ) {
@@ -1089,7 +1089,7 @@ class ExtArrays {
 	 * @param string $arrayId
 	 * @param array  $array
 	 */
-	public function createArray( $arrayId, $array = array() ) {
+	public function createArray( $arrayId, $array = [] ) {
 		$array = self::sanitizeArray( $array );
 		$this->mArrays[ trim( $arrayId ) ] = $array;
 	}
@@ -1102,7 +1102,7 @@ class ExtArrays {
 	 * @param string $arrayId
 	 * @param array $array
 	 */
-	protected function setArray( $arrayId, $array = array() ) {
+	protected function setArray( $arrayId, $array = [] ) {
 		$this->mArrays[ trim( $arrayId ) ] = $array;
 	}
 
@@ -1172,7 +1172,7 @@ class ExtArrays {
 	 * @return array
 	 */
 	public static function sanitizeArray( $array ) {
-		$newArray = array();
+		$newArray = [];
 		foreach( $array as $val ) {
 			$newArray[] = trim( $val );
 		}

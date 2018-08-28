@@ -38,9 +38,9 @@ $egArraysCompatibilityMode = false;
  *
  * @var array|null
  */
-$egArraysExpansionEscapeTemplates = array(
+$egArraysExpansionEscapeTemplates = [
 	'='  => '{{=}}',
 	'|'  => '{{!}}',
 	'{{' => '{{((}}',
 	'}}' => '{{))}}'
-);
+];

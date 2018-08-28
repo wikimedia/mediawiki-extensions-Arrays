@@ -142,7 +142,7 @@ class ExtArrays {
 	public static function getDir() {
 		static $dir = null;
 		if( $dir === null ) {
-			$dir = dirname( __FILE__ );
+			$dir = __DIR__;
 		}
 		return $dir;
 	}
@@ -994,7 +994,7 @@ class ExtArrays {
 		$ret = [];
 		foreach( $options as $option ) {
 			$optPair = preg_split( '/\s*\=\s*/', $option, 2 );
-			if( sizeof( $optPair ) == 1 ) {
+			if( count( $optPair ) == 1 ) {
 				$ret[ $optPair[0] ] = true;
 			} else {
 				$ret[ $optPair[0] ] = $optPair[1];

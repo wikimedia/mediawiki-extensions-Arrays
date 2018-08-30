@@ -122,9 +122,8 @@ class ExtArrays {
 		self::initFunction( $parser, 'arrayunion', Parser::SFH_OBJECT_ARGS );
 		self::initFunction( $parser, 'arraydiff', Parser::SFH_OBJECT_ARGS );
 		self::initFunction( $parser, 'arrayintersect', Parser::SFH_OBJECT_ARGS );
-
-		return true;
 	}
+
 	private static function initFunction( Parser &$parser, $name, $flags = 0 ) {
 		// all parser functions with prefix:
 		$prefix = ( $flags & Parser::SFH_OBJECT_ARGS ) ? 'pfObj_' : 'pf_';
@@ -1020,7 +1019,6 @@ class ExtArrays {
 	static function onParserClearState( Parser &$parser ) {
 		// remove all arrays to avoid conflicts with job queue or Special:Import or SMW semantic updates
 		$parser->mExtArrays = new self();
-		return true;
 	}
 
 	# ###################################

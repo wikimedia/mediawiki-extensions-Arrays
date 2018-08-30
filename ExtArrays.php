@@ -767,18 +767,16 @@ class ExtArrays {
 	 *        only one array id is given. If not, the original array will end up in the new array.
 	 */
 	protected function multiArrayOperation( PPFrame $frame, array $args, $operationFunc, $runFuncOnSingleArray = true ) {
+		$args = array_values( $args );
+		$numArgs = count( $args );
+
 		$lastArray = null;
 		$operationRan = false;
 		$finalArrayId = trim( $frame->expand( $args[0] ) );
 		$operationFunc = 'multi_' . preg_replace( '/^pfObj_/', '', $operationFunc );
-		$length = count( $args );
 
 		// For all arrays given in parameters 2 to n (ignore 1 because this is the name of the new array)
-		for ( $i = 1; $i < $length; $i++ ) {
-			// just make sure we don't fall into gaps of given arguments:
-			if ( !array_key_exists( $i, $args ) ) {
-				continue;
-			}
+		for ( $i = 1; $i < $numArgs; $i++ ) {
 			$argArrayId = trim( $frame->expand( $args[ $i ] ) );
 
 			// ignore all tables which do not exist
@@ -810,7 +808,7 @@ class ExtArrays {
 			 * Before version 2.0 we didn't create a new array in case only one array was given.
 			 * The only exception was 'arraymerge' which did duplicate the array.
 			 */
-			return '';
+			return;
 		}
 
 		// if the operation didn't run because there was only one or no array:

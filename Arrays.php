@@ -962,7 +962,7 @@ class ExtArrays {
 	 *
 	 * @return string
 	 */
-	protected static function array_value( $array, $field ) {
+	protected static function array_value( array $array, $field ) {
 		if ( is_array( $array ) && array_key_exists( $field, $array ) ) {
 			return $array[ $field ];
 		}
@@ -1069,7 +1069,7 @@ class ExtArrays {
 	 * @param string $arrayId
 	 * @param array $array
 	 */
-	public function createArray( $arrayId, $array = [] ) {
+	public function createArray( $arrayId, array $array = [] ) {
 		$array = self::sanitizeArray( $array );
 		$this->mArrays[ trim( $arrayId ) ] = $array;
 	}
@@ -1082,7 +1082,7 @@ class ExtArrays {
 	 * @param string $arrayId
 	 * @param array $array
 	 */
-	protected function setArray( $arrayId, $array = [] ) {
+	protected function setArray( $arrayId, array $array = [] ) {
 		$this->mArrays[ trim( $arrayId ) ] = $array;
 	}
 
@@ -1149,7 +1149,7 @@ class ExtArrays {
 	 * @param array $array array to be reorganized
 	 * @return array
 	 */
-	public static function sanitizeArray( $array ) {
+	public static function sanitizeArray( array $array ) {
 		$newArray = [];
 		foreach ( $array as $val ) {
 			$newArray[] = trim( $val );
@@ -1246,7 +1246,7 @@ class ExtArrays {
 	 *
 	 * @return string
 	 */
-	public static function arrayToText( $array, $commaSep = null ) {
+	public static function arrayToText( array $array, $commaSep = null ) {
 		global $wgLang;
 		$commaSep = $commaSep === null ? self::$mDefaultSep : $commaSep;
 		$s = '';

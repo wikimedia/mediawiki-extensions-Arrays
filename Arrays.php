@@ -618,7 +618,7 @@ class ExtArrays {
 	 *    extract a slice from an  array
 	 *    see: http://www.php.net/manual/en/function.array-slice.php
 	 */
-	static function pf_arrayslice( Parser &$parser, $arrayId_new, $arrayId = null , $offset = 0, $length = null ) {
+	static function pf_arrayslice( Parser &$parser, $arrayId_new, $arrayId = null, $offset = 0, $length = null ) {
 		$store = self::get( $parser );
 		if ( $arrayId === null ) {
 			global $egArraysCompatibilityMode;
@@ -722,7 +722,7 @@ class ExtArrays {
 	 *        http://www.php.net/manual/en/function.shuffle.php
 	 *        http://us3.php.net/manual/en/function.array-reverse.php
 	 */
-	static function pf_arraysort( Parser &$parser, $arrayId , $sort = 'none' ) {
+	static function pf_arraysort( Parser &$parser, $arrayId, $sort = 'none' ) {
 		$store = self::get( $parser );
 
 		$array = $store->getArray( $arrayId );

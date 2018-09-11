@@ -998,18 +998,9 @@ class ExtArrays {
 	 * same as self::arrayUnique() but without sanitazation, only for internal use.
 	 */
 	protected static function array_unique( array $array ) {
-		// delete duplicate values
-		$array = array_unique( $array );
-
-		$values = [];
-		foreach ( $array as $key => $val ) {
-			// don't put emty elements into the array
-			if ( $val !== '' ) {
-				$values[] = $val;
-			}
-		}
-
-		return $values;
+		return array_filter( array_unique( $array ), function ( $value ) {
+			return $value !== '';
+		} );
 	}
 
 	# #############

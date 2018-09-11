@@ -36,7 +36,7 @@ $egArraysCompatibilityMode = false;
  *
  * @since 2.0
  *
- * @var array|null
+ * @var string[]|null
  */
 $egArraysExpansionEscapeTemplates = [
 	'='  => '{{=}}',

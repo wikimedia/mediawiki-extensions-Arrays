@@ -40,15 +40,15 @@ $wgExtensionCredits['parserhook'][] = [
 
 // Internationalization
 $wgMessagesDirs['Arrays'] = __DIR__ . '/i18n';
-$wgExtensionMessagesFiles['ArraysMagic'] = ExtArrays::getDir() . '/Arrays.i18n.magic.php';
+$wgExtensionMessagesFiles['ArraysMagic'] = __DIR__ . '/Arrays.i18n.magic.php';
 
 // hooks registration:
 $wgHooks['ParserFirstCallInit'][] = 'ExtArrays::init';
 $wgHooks['ParserClearState'   ][] = 'ExtArrays::onParserClearState';
 
 // parser tests registration:
-$wgParserTestFiles[] = ExtArrays::getDir() . '/tests/parser/arrayParserTests.txt';
-$wgParserTestFiles[] = ExtArrays::getDir() . '/tests/parser/arrayLoopsInteractionParserTests.txt';
+$wgParserTestFiles[] = __DIR__ . '/tests/parser/arrayParserTests.txt';
+$wgParserTestFiles[] = __DIR__ . '/tests/parser/arrayLoopsInteractionParserTests.txt';
 
 // Include the settings file:
-require_once ExtArrays::getDir() . '/Arrays.settings.php';
+require_once __DIR__ . '/Arrays.settings.php';

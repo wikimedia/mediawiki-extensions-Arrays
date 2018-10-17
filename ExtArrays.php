@@ -81,21 +81,6 @@ class ExtArrays {
 		$parser->setFunctionHook( $name, $functionCallback, $flags );
 	}
 
-	/**
-	 * Returns the extensions base installation directory.
-	 *
-	 * @since 2.0
-	 *
-	 * @return string
-	 */
-	public static function getDir() {
-		static $dir = null;
-		if ( $dir === null ) {
-			$dir = __DIR__;
-		}
-		return $dir;
-	}
-
 	# ###################
 	# Parser Functions #
 	# ###################

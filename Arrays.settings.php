@@ -2,7 +2,7 @@
 
 /**
  * File defining the settings for the 'Arrays' extension.
- * More info can be found at http://www.mediawiki.org/wiki/Extension:Arrays#Configuration
+ * More info can be found at https://www.mediawiki.org/wiki/Extension:Arrays#Configuration
  *
  * NOTICE:
  * =======

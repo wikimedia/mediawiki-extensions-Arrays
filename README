@@ -3,7 +3,7 @@
 The 'Arrays' extension (former 'ArrayExtension') Enhances the parser with
 functions to handle arrays within wiki markup text.
 
-* Website: http://www.mediawiki.org/wiki/Extension:Arrays
+* Website: https://www.mediawiki.org/wiki/Extension:Arrays
 * Authors: Li Ding, Jie Bao, Daniel Werner < danweetz@web.de >
 * License: MIT license
 
@@ -29,4 +29,4 @@ advantage of this extension. Follow their installation procedures.
 If you have bug reports or feature requests, please add them to the 'Arrays'
 Talk page [0]. You can also send them to Daniel Werner < danweetz@web.de >
 
-[0] http://www.mediawiki.org/w/index.php?title=Extension_talk:Arrays
+[0] https://www.mediawiki.org/w/index.php?title=Extension_talk:Arrays

@@ -127,7 +127,7 @@ class ExtArrays {
 				$trimDone = true;
 			} else {
 				// if no regex delimiter given, build one:
-				if ( ! self::isValidRegEx( $delimiter ) ) {
+				if ( !self::isValidRegEx( $delimiter ) ) {
 					$delimiter = '/\s*' . preg_quote( $delimiter, '/' ) . '\s*/';
 					$trimDone = true; // spaces are part of the delimiter now
 				}
@@ -135,7 +135,7 @@ class ExtArrays {
 			}
 
 			// trim all values before unique if still necessary, otherwise unique might not work correctly
-			if ( ! $trimDone ) {
+			if ( !$trimDone ) {
 				$array = self::sanitizeArray( $array );
 			}
 
@@ -150,7 +150,7 @@ class ExtArrays {
 
 			// if 'singleempty' is NOT set, {{#arraydefine:a|}} will be empty.
 			// by default this would give an empty array (due to historical as well as usability reasons)
-			if ( ! array_key_exists( 'singleempty', $arrayOptions ) ) {
+			if ( !array_key_exists( 'singleempty', $arrayOptions ) ) {
 				// there is no other uncomplicated way than this to define a single empty elemented array currently!
 				if ( count( $array ) === 1 && $array[0] === '' ) {
 					$array = [];
@@ -244,7 +244,7 @@ class ExtArrays {
 
 		if ( $array === null ) {
 			// array we want to print doesn't exist!
-			if ( ! $egArraysCompatibilityMode ) {
+			if ( !$egArraysCompatibilityMode ) {
 				return '';
 			} else {
 				// COMPATIBILITY-MODE
@@ -254,7 +254,7 @@ class ExtArrays {
 
 		// if there is no subject, there is no point in expanding. Faster!
 		if ( $subject === null ) {
-			if ( ! $egArraysCompatibilityMode && $egArraysExpansionEscapeTemplates !== null ) {
+			if ( !$egArraysCompatibilityMode && $egArraysExpansionEscapeTemplates !== null ) {
 				// we can ignore options here, since if subject is null, options won't be set as well!
 				return trim( implode( $delimiter, $array ) );
 			} else {
@@ -268,7 +268,7 @@ class ExtArrays {
 
 		foreach ( $array as $val ) {
 
-			if ( ! $egArraysCompatibilityMode ) {
+			if ( !$egArraysCompatibilityMode ) {
 				// NO COMPATIBILITY-MODE
 				/**
 				 * escape the array value so it won't destroy the users wiki markup expression.
@@ -331,7 +331,7 @@ class ExtArrays {
 		$arrayId    = isset( $args[0] ) ? trim( $frame->expand( $args[0] ) ) : '';
 		$rawOptions = isset( $args[2] ) ? $args[2] : '';
 
-		if ( ! isset( $args[1] ) ) {
+		if ( !isset( $args[1] ) ) {
 			return '';
 		}
 		$index = trim( $frame->expand( $args[1] ) );
@@ -372,7 +372,7 @@ class ExtArrays {
 	static function pf_arraysize( Parser &$parser, $arrayId ) {
 		$store = self::get( $parser );
 
-		if ( ! $store->arrayExists( $arrayId ) ) {
+		if ( !$store->arrayExists( $arrayId ) ) {
 		   return '';
 		}
 
@@ -407,7 +407,7 @@ class ExtArrays {
 
 				$needle = trim( $frame->expand( $args[1] ) );
 
-				if ( ! self::isValidRegEx( $needle ) ) {
+				if ( !self::isValidRegEx( $needle ) ) {
 					$needle = '/^\s*' . preg_quote( trim( $needle ), '/' ) . '\s*$/';
 				}
 			} else {
@@ -461,7 +461,7 @@ class ExtArrays {
 
 		if ( $arrayId === null ) {
 			global $egArraysCompatibilityMode;
-			if ( ! $egArraysCompatibilityMode ) { // COMPATIBILITY-MODE
+			if ( !$egArraysCompatibilityMode ) { // COMPATIBILITY-MODE
 				$store->setArray( $arrayId_new );
 			}
 			return '';
@@ -494,7 +494,7 @@ class ExtArrays {
 		$newArr = [];
 
 		$regexFunSupport = self::hasRegexFunSupport();
-		if ( ! self::isValidRegEx( $needle, $regexFunSupport ) ) {
+		if ( !self::isValidRegEx( $needle, $regexFunSupport ) ) {
 			$needle = '/^\s*(' . preg_quote( $needle, '/' ) . ')\s*$/';
 		}
 
@@ -555,7 +555,7 @@ class ExtArrays {
 		$store = self::get( $parser );
 		if ( $arrayId === null ) {
 			global $egArraysCompatibilityMode;
-			if ( ! $egArraysCompatibilityMode ) { // COMPATIBILITY-MODE
+			if ( !$egArraysCompatibilityMode ) { // COMPATIBILITY-MODE
 				$store->setArray( $arrayId_new );
 			}
 			return '';
@@ -567,12 +567,12 @@ class ExtArrays {
 		$store->setArray( $arrayId_new );
 
 		if ( $array === null
-			|| ! is_numeric( $offset ) // don't ignore invalid offset
+			|| !is_numeric( $offset ) // don't ignore invalid offset
 		) {
 		   return '';
 		}
 
-		if ( ! is_numeric( $length ) ) {
+		if ( !is_numeric( $length ) ) {
 			$length = null; // ignore invalid input, slice till end
 		}
 
@@ -607,7 +607,7 @@ class ExtArrays {
 		$store = self::get( $parser );
 
 		// reset all hash tables if no specific tables are given:
-		if ( ! isset( $args[0] ) || ( $args[0] === '' && count( $args ) == 1 ) ) {
+		if ( !isset( $args[0] ) || ( $args[0] === '' && count( $args ) == 1 ) ) {
 			// reset ALL arrays!
 			$store->mArrays = [];
 		} else {
@@ -772,7 +772,7 @@ class ExtArrays {
 		// For all arrays given in parameters 2 to n (ignore 1 because this is the name of the new array)
 		for ( $i = 1; $i < $length; $i++ ) {
 			// just make sure we don't fall into gaps of given arguments:
-			if ( ! array_key_exists( $i, $args ) ) {
+			if ( !array_key_exists( $i, $args ) ) {
 				continue;
 			}
 			$argArrayId = trim( $frame->expand( $args[ $i ] ) );
@@ -798,7 +798,7 @@ class ExtArrays {
 
 		global $egArraysCompatibilityMode;
 
-		if ( ! $operationRan && $egArraysCompatibilityMode
+		if ( !$operationRan && $egArraysCompatibilityMode
 			&& $operationFunc !== 'multi_arraymerge' // only exception was 'arraymerge'
 		) {
 			/*
@@ -810,7 +810,7 @@ class ExtArrays {
 		}
 
 		// if the operation didn't run because there was only one or no array:
-		if ( ! $operationRan && $runFuncOnSingleArray ) {
+		if ( !$operationRan && $runFuncOnSingleArray ) {
 			$lastArray = $this->{ $operationFunc }( $lastArray );
 		}
 
@@ -834,7 +834,7 @@ class ExtArrays {
 	 * @return bool
 	 */
 	protected function validate_array_index( $arrayId, &$index, $strictIndex = false ) {
-		if ( ! is_numeric( $index ) ) {
+		if ( !is_numeric( $index ) ) {
 			if ( $strictIndex ) {
 				return false;
 			} else {
@@ -843,7 +843,7 @@ class ExtArrays {
 		}
 		$index = (int)$index;
 
-		if ( ! array_key_exists( $arrayId, $this->mArrays ) ) {
+		if ( !array_key_exists( $arrayId, $this->mArrays ) ) {
 			return false;
 		}
 
@@ -857,10 +857,10 @@ class ExtArrays {
 			}
 		}
 
-		if ( ! isset( $array ) ) {
+		if ( !isset( $array ) ) {
 			return false;
 		}
-		if ( ! array_key_exists( $index, $array ) ) {
+		if ( !array_key_exists( $index, $array ) ) {
 			return false;
 		}
 		return true;
@@ -872,12 +872,12 @@ class ExtArrays {
 	 * @deprecated
 	 */
 	protected function validate_array_by_arrayId( $arrayId ) {
-		if ( ! isset( $arrayId ) ) {
+		if ( !isset( $arrayId ) ) {
 			return '';
 		}
-		if ( ! isset( $this->mArrays )
-			|| ! array_key_exists( $arrayId, $this->mArrays )
-			|| ! is_array( $this->mArrays[ $arrayId ] )
+		if ( !isset( $this->mArrays )
+			|| !array_key_exists( $arrayId, $this->mArrays )
+			|| !is_array( $this->mArrays[ $arrayId ] )
 		) {
 			global $egArraysCompatibilityMode;
 			if ( $egArraysCompatibilityMode ) {
@@ -909,7 +909,7 @@ class ExtArrays {
 	 * separators will be ignored.
 	 */
 	protected static function parse_options( $options ) {
-		if ( ! isset( $options ) ) {
+		if ( !isset( $options ) ) {
 			return [];
 		}
 
@@ -1235,7 +1235,7 @@ class ExtArrays {
 			return ExtRegexFun::validateRegex( $pattern );
 		}
 
-		if ( ! preg_match( '/^([\\/\\|%]).*\\1[imsSuUx]*$/', $pattern ) ) {
+		if ( !preg_match( '/^([\\/\\|%]).*\\1[imsSuUx]*$/', $pattern ) ) {
 			return false;
 		}
 		wfSuppressWarnings(); // instead of using the evil @ operator!

@@ -686,6 +686,7 @@ class ExtArrays {
 		self::get( $parser )->multiArrayOperation( $frame, $args, __FUNCTION__, false );
 		return '';
 	}
+
 	private function multi_arraymerge( $array1, $array2 ) {
 		// keys will not be re-organized
 		return array_merge( $array1, $array2 );
@@ -702,6 +703,7 @@ class ExtArrays {
 		self::get( $parser )->multiArrayOperation( $frame, $args, __FUNCTION__, false );
 		return '';
 	}
+
 	private function multi_arrayunion( $array1, $array2 ) {
 		// keys will not be re-organized
 		return array_unique( array_merge( $array1, $array2 ) );
@@ -718,6 +720,7 @@ class ExtArrays {
 		self::get( $parser )->multiArrayOperation( $frame, $args, __FUNCTION__, false );
 		return '';
 	}
+
 	private function multi_arrayintersect( $array1, $array2 ) {
 		// keys will be preserved!
 		return array_intersect( $array1, $array2 );
@@ -735,6 +738,7 @@ class ExtArrays {
 		self::get( $parser )->multiArrayOperation( $frame, $args, __FUNCTION__, false );
 		return '';
 	}
+
 	private function multi_arraydiff( $array1, $array2 ) {
 		// keys will be preserved!
 		return array_diff( $array1, $array2 );

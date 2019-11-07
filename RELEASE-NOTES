@@ -168,7 +168,7 @@
     - changed arraydefine (allow defining empty array)
 
  -------------------------------------------
- the following fuctions are obsoleted
+ the following functions are obsoleted
     '#arraypush'   (replaced by arraymerge)
     '#arraypop'    (replaced by arrayslice)
     '#arraymember' (replaced by arraysearch)

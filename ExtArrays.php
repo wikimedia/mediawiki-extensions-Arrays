@@ -1161,7 +1161,7 @@ class ExtArrays {
 			case 'reverse':
 				$array = array_reverse( $array );
 				break;
-		};
+		}
 		return $array;
 	}
 

@@ -1,23 +1,24 @@
+!! Version 2
 # MediaWiki 'Arrays' extension Parser test cases
 # Author: Daniel Werner
 
 # Generate required templates.
 # These are the defaults set in $egArraysExpansionEscapeTemplates
-!!article
+!! article
 Template:((
-!!text
+!! text
 {{
 !!endarticle
 
-!!article
+!! article
 Template:))
-!!text
+!! text
 }}
 !!endarticle
 
-!!article
+!! article
 Template:=
-!!text
+!! text
 <nowiki>=</nowiki>
 !!endarticle
 
@@ -28,9 +29,9 @@ Template:=
 
 !! test
 Inclusion of special page does not reset arrays. Did not work before 'Arrays 2.0' rewrite
-!! input
+!! wikitext
 "{{#arraydefine:a|test}}{{#arraydefine:foo|{{Special:AllPages}} }}", "{{#arraysize:a}}"
-!!result
+!! html
 <p>"", "1"
 </p>
 !! end
@@ -47,10 +48,10 @@ arraydefine
 
 !! test
 'arraydefine' with default parameters.
-!! input
+!! wikitext
 {{#arraydefine: a | a, b, , a, a, }}
 "{{#arrayprint: a}}"
-!!result
+!! html
 <p>"a, b, , a, a,"
 </p>
 !! end
@@ -58,10 +59,10 @@ arraydefine
 
 !! test
 ';' as separator, unique option
-!! input
+!! wikitext
 {{#arraydefine: a | a; ; b; a; a ; ; | ; | unique }}
 {{#arrayprint: a}}
-!!result
+!! html
 <p>a, b
 </p>
 !! end
@@ -69,10 +70,10 @@ arraydefine
 
 !! test
 'arraydefine' using an regular expression
-!! input
+!! wikitext
 {{#arraydefine: a | a b c d | /\s+/ }}
 {{#arrayprint: a}}
-!!result
+!! html
 <p>a, b, c, d
 </p>
 !! end
@@ -80,10 +81,10 @@ arraydefine
 
 !! test
 'arraydefine' with empty definition should create empty array and one with 'singleempty' option
-!! input
+!! wikitext
 {{#arraydefine: a | }}{{#arraydefine: b | |, | singleempty }}
 "{{#arraysize: a}}", "{{#arraysize: b}}"
-!!result
+!! html
 <p>"0", "1"
 </p>
 !! end
@@ -96,9 +97,9 @@ arraydefine
 
 !! test
 'arrayprint' with non-existent array.
-!! input
+!! wikitext
 "{{#arrayprint: non-existent-array }}"
-!!result
+!! html
 <p>""
 </p>
 !! end
@@ -106,10 +107,10 @@ arraydefine
 
 !! test
 'arrayprint' with array key output.
-!! input
+!! wikitext
 {{#arraydefine: a | a, bb, ccc}}
 "{{#arrayprint: a | <br/> }}"
-!!result
+!! html
 <p>"a<br />bb<br />ccc"
 </p>
 !! end
@@ -121,10 +122,10 @@ len
 
 !! test
 Parser function within 'arrayprint'
-!! input
+!! wikitext
 {{#arraydefine: a | a, bb, ccc}}
 "{{#arrayprint: a | | @ | {{#len:@}} }}"
-!!result
+!! html
 <p>"123"
 </p>
 !! end
@@ -132,18 +133,18 @@ Parser function within 'arrayprint'
 
 !! test
 Test whether escaping special chars in 'arrayprint' works (this is related to $egArraysExpansionEscapeTemplates )
-!! input
+!! wikitext
 {{#arraydefine: a | a{{))}}, {{!}}bb=bb, cc{{))}}c}}
 "{{#arrayprint: a | , | @ | @ }}"
-!!result
+!! html
 <p>"a}},|bb=bb,cc}}c"
 </p>
 !! end
 
 
-!!article
+!! article
 Template:ArrayTestHelper
-!!text
+!! text
 {{
 <!-- This test will check for parameter use within statement -->
 #arrayprint:{{{name|}}} |{{{sep|}}} |@@@@ | {{#if:{{{1|}}}|"{{{1|}}}",}} "@@@@" {{#len:@@@@}}
@@ -152,10 +153,10 @@ Template:ArrayTestHelper
 
 !! test
 'arrayprint' within a template with parameter in print statement
-!! input
+!! wikitext
 {{#arraydefine: a | a, bb, ccc}}
 {{ArrayTestHelper |name=a |sep=<br/> |1=fo{{))}}o}}
-!!result
+!! html
 <p>"fo}}o", "a" 1<br />"fo}}o", "bb" 2<br />"fo}}o", "ccc" 3
 </p>
 !! end
@@ -167,10 +168,10 @@ Template:ArrayTestHelper
 
 !! test
 'arrayindex' with non-defined array.
-!! input
+!! wikitext
 "{{#arrayindex: undefined-array | 0 }}",
 "{{#arrayindex: undefined-array |  }}"
-!!result
+!! html
 <p>"",
 ""
 </p>
@@ -179,12 +180,12 @@ Template:ArrayTestHelper
 
 !! test
 'arrayindex' with existing and non-existing keys.
-!! input
+!! wikitext
 {{#arraydefine: a | 1 }}
 "{{#arrayindex: a | 0 }}",
 "{{#arrayindex: a | 100 }}",
 "{{#arrayindex: a | xxx }}"
-!!result
+!! html
 <p>"1",
 "",
 ""
@@ -194,13 +195,13 @@ Template:ArrayTestHelper
 
 !! test
 'arrayindex' with negative index.
-!! input
+!! wikitext
 {{#arraydefine: a | a,b,c,d,e
 }}"{{
 #arrayindex: a | -1 }}", "{{
 #arrayindex: a | -0 }}", "{{
 #arrayindex: a | -111 }}"
-!!result
+!! html
 <p>"e", "a", ""
 </p>
 !! end
@@ -208,12 +209,12 @@ Template:ArrayTestHelper
 
 !! test
 the need for the 'default=' sucks, should be removed some day.
-!! input
+!! wikitext
 "{{
 #arrayindex: undefined-array |  }}", "{{
 #arrayindex: undefined-array | 0| dflt
 }}"
-!!result
+!! html
 <p>"", "dflt"
 </p>
 !! end
@@ -221,12 +222,12 @@ the need for the 'default=' sucks, should be removed some day.
 
 !! test
 existing index, empty value "", default should jump in
-!! input
+!! wikitext
 "{{
 #arraydefine: a | A }}{{
 #arrayindex: a | A | dflt
 }}"
-!!result
+!! html
 <p>"dflt"
 </p>
 !! end
@@ -234,7 +235,7 @@ existing index, empty value "", default should jump in
 
 !! test
 default expansion test
-!! input
+!! wikitext
 "{{
 #arraydefine: a | A }}{{
 #vardefine: var }}{{
@@ -243,7 +244,7 @@ default expansion test
 #arrayindex: a | 1 | {{#vardefine: var | 2 }} }}{{
 #var: var
 }}"
-!!result
+!! html
 <p>"A", "2"
 </p>
 !! end
@@ -255,9 +256,9 @@ default expansion test
 
 !! test
 'arraysize' with non-defined array.
-!! input
+!! wikitext
 "{{#arraysize: undefined-array}}"
-!!result
+!! html
 <p>""
 </p>
 !! end
@@ -265,10 +266,10 @@ default expansion test
 
 !! test
 'arraysize' with defined, empty array.
-!! input
+!! wikitext
 {{#arraydefine: a}}
 "{{#arraysize: a}}"
-!!result
+!! html
 <p>"0"
 </p>
 !! end
@@ -276,10 +277,10 @@ default expansion test
 
 !! test
 'arraysize' non-empty array.
-!! input
+!! wikitext
 {{#arraydefine: a | a, 2 }}
 "{{#arraysize: a}}"
-!!result
+!! html
 <p>"2"
 </p>
 !! end
@@ -291,9 +292,9 @@ default expansion test
 
 !! test
 'arraysearch' without data
-!! input
+!! wikitext
 "{{#arraysearch:}}"
-!!result
+!! html
 <p>""
 </p>
 !! end
@@ -301,9 +302,9 @@ default expansion test
 
 !! test
 'arraysearch' returning '-1' on not found sucks returns empty string since 2.0 rewrite
-!! input
+!! wikitext
 "{{#arraysearch:}}"
-!!result
+!! html
 <p>""
 </p>
 !! end
@@ -311,34 +312,34 @@ default expansion test
 
 !! test
 'arraysearch' without data
-!! input
+!! wikitext
 "{{
 #arraydefine:a|a}}{{
 #arraysearch:a| a |0|yes|no}}", "{{
 #arraysearch:a|foo|0|yes|no
 }}"
-!!result
+!! html
 <p>"yes", "no"
 </p>
 !! end
 
 
-!!article
+!! article
 Template:ArrayTests:arraysearch
-!!text
+!! text
 <!-- base by the following tests
 -->{{#arraydefine: arrSearch | red, blue, 1, 5, green, 3, 1, 1, 2}}
 !!endarticle
 
 !! test
 Some basic 'arraysearch'
-!! input
+!! wikitext
 {{ArrayTests:arraysearch}}
 "{{#arraysearch: arrSearch | 1 }}",
 "{{#arraysearch: arrSearch | red }}",
 "{{#arraysearch: arrSearch | 1 | 3 }}",
 "{{#arraysearch: arrSearch | /\d+/isx }}"
-!!result
+!! html
 <p>"2",
 "0",
 "6",
@@ -348,12 +349,12 @@ Some basic 'arraysearch'
 
 !! test
 With negative start index
-!! input
+!! wikitext
 {{ArrayTests:arraysearch}}
 "{{#arraysearch: arrSearch | 1 | -1 }}",
 "{{#arraysearch: arrSearch | 1 | -2 }}",
 "{{#arraysearch: arrSearch | 1 | -20 }}"
-!!result
+!! html
 <p>"",
 "7",
 "2"
@@ -362,12 +363,12 @@ With negative start index
 
 !! test
 'arraysearch' parameter 'yes' and 'no' expansion test.
-!! input
+!! wikitext
 {{ArrayTests:arraysearch}}{{
 #arraydefine: arrSearch | red, blue, 1, 5, green, 3, 1, 1, 2}}{{
 #arraysearch: arrSearch | 1 | 0 | {{#vardefine:yes|1}} | {{#vardefine:no|1}} }}"{{#var:yes}}_{{#var:no}}",
 {{#arraysearch: arrSearch | xxx | 0 | {{#vardefine:yes2|1}} | {{#vardefine:no2|1}} }}"{{#var:yes2}}_{{#var:no2}}"
-!!result
+!! html
 <p>"1_",
 "_1"
 </p>
@@ -378,9 +379,9 @@ With negative start index
 ## #arraysearcharray
 ##
 
-!!article
+!! article
 Template:ArrayTests:arraysearcharray
-!!text
+!! text
 <!-- base by the following tests
 -->{{
 #arrayreset:
@@ -391,7 +392,7 @@ Template:ArrayTests:arraysearcharray
 
 !! test
 Only parameter one
-!! input
+!! wikitext
 "{{
 ArrayTests:arraysearcharray
 }}{{
@@ -399,7 +400,7 @@ ArrayTests:arraysearcharray
 #arraysearcharray: a }}{{
 #arraysize: a
 }}"
-!!result
+!! html
 <p>"0"
 </p>
 !! end
@@ -407,14 +408,14 @@ ArrayTests:arraysearcharray
 
 !! test
 Empty, this will find the three empty elements
-!! input
+!! wikitext
 "{{
 ArrayTests:arraysearcharray
 }}{{
 #arraysearcharray: a | arrSearch }}{{
 #arrayprint: a | ,
 }}"
-!!result
+!! html
 <p>",,"
 </p>
 !! end
@@ -422,14 +423,14 @@ ArrayTests:arraysearcharray
 
 !! test
 Search for '1'
-!! input
+!! wikitext
 "{{
 ArrayTests:arraysearcharray
 }}{{
 #arraysearcharray: a | arrSearch | 1 }}{{
 #arrayprint: a
 }}"
-!!result
+!! html
 <p>"1, 1"
 </p>
 !! end
@@ -437,14 +438,14 @@ ArrayTests:arraysearcharray
 
 !! test
 Regex search expression, index and offset omitted
-!! input
+!! wikitext
 "{{
 ArrayTests:arraysearcharray
 }}{{
 #arraysearcharray: a | arrSearch | /\d+/ | | }}{{
 #arrayprint: a
 }}"
-!!result
+!! html
 <p>"green 1, yellow 1, 33, 21, 9, 0, 0, 2, 1, 1"
 </p>
 !! end
@@ -452,14 +453,14 @@ ArrayTests:arraysearcharray
 
 !! test
 Regex search with limit
-!! input
+!! wikitext
 "{{
 ArrayTests:arraysearcharray
 }}{{
 #arraysearcharray: a | arrSearch | /\d+/ | 0 | 4 }}{{
 #arrayprint: a
 }}"
-!!result
+!! html
 <p>"green 1, yellow 1, 33, 21"
 </p>
 !! end
@@ -467,14 +468,14 @@ ArrayTests:arraysearcharray
 
 !! test
 Regex search with limit '0'
-!! input
+!! wikitext
 "{{
 ArrayTests:arraysearcharray
 }}{{
 #arraysearcharray: a | arrSearch | /\d+/ | 0 | 0 }}{{
 #arrayprint: a
 }}"
-!!result
+!! html
 <p>""
 </p>
 !! end
@@ -482,14 +483,14 @@ ArrayTests:arraysearcharray
 
 !! test
 Regex search with limit and start index
-!! input
+!! wikitext
 "{{
 ArrayTests:arraysearcharray
 }}{{
 #arraysearcharray: a | arrSearch | /\d+/ | 2 | 4 }}{{
 #arrayprint: a
 }}"
-!!result
+!! html
 <p>"yellow 1, 33, 21, 9"
 </p>
 !! end
@@ -497,14 +498,14 @@ ArrayTests:arraysearcharray
 
 !! test
 Regex search and transform
-!! input
+!! wikitext
 "{{
 ArrayTests:arraysearcharray
 }}{{
 #arraysearcharray: a | arrSearch | /(\d+)/ | 2 | 3 | $0 + $1 }}{{
 #arrayprint: a
 }}"
-!!result
+!! html
 <p>"yellow 1 + 1, 33 + 33, 21 + 21"
 </p>
 !! end
@@ -512,14 +513,14 @@ ArrayTests:arraysearcharray
 
 !! test
 Regex search and transform with limit and negative start index
-!! input
+!! wikitext
 "{{
 ArrayTests:arraysearcharray
 }}{{
 #arraysearcharray: a | arrSearch | /(\d+)/ | -6 | 4 | +$1 }}{{
 #arrayprint: a
 }}"
-!!result
+!! html
 <p>"+0, +2, +1, +1"
 </p>
 !! end
@@ -529,7 +530,7 @@ ArrayTests:arraysearcharray
 Using Subpage Fun extension with 'e' modifier
 !! options
 disabled
-!! input
+!! wikitext
 "{{
 ArrayTests:arraysearcharray
 }}{{
@@ -538,7 +539,7 @@ ArrayTests:arraysearcharray
 #arrayprint: b }}", "{{
 #arrayindex: b | 0
 }}"
-!!result
+!! html
 <p>"5, 3, 4, 1, 2, 9, 8, 4", "5"
 </p>
 !! end
@@ -550,12 +551,12 @@ ArrayTests:arraysearcharray
 
 !! test
 empty 'arrayslice'
-!! input
+!! wikitext
 "{{
 #arrayreset: a }}{{
 #arrayslice: a }}{{
 #arraysize: a }}"
-!!result
+!! html
 <p>"0"
 </p>
 !! end
@@ -563,13 +564,13 @@ empty 'arrayslice'
 
 !! test
 'arrayslice' without offset using for cloning an array
-!! input
+!! wikitext
 "{{
 #arraydefine: a | a, b, c, d, e, f }}{{
 #arrayslice: a | a }}{{
 #arrayprint: a
 }}"
-!!result
+!! html
 <p>"a, b, c, d, e, f"
 </p>
 !! end
@@ -577,13 +578,13 @@ empty 'arrayslice'
 
 !! test
 'arrayslice' with offset and limit
-!! input
+!! wikitext
 "{{
 #arraydefine: a | a, b, c, d, e, f }}{{
 #arrayslice: a | a | 1 | 2 }}{{
 #arrayprint: a
 }}"
-!!result
+!! html
 <p>"b, c"
 </p>
 !! end
@@ -591,13 +592,13 @@ empty 'arrayslice'
 
 !! test
 'arrayslice' with negative offset
-!! input
+!! wikitext
 "{{
 #arraydefine: a | a, b, c, d, e, f }}{{
 #arrayslice: a | a | -2 | 100 }}{{
 #arrayprint: a
 }}"
-!!result
+!! html
 <p>"e, f"
 </p>
 !! end
@@ -605,13 +606,13 @@ empty 'arrayslice'
 
 !! test
 'arrayslice' with negative offset and limit
-!! input
+!! wikitext
 "{{
 #arraydefine: a | a, b, c, d, e, f }}{{
 #arrayslice: a | a | -3 | -1 }}{{
 #arrayprint: a
 }}"
-!!result
+!! html
 <p>"d, e"
 </p>
 !! end
@@ -619,13 +620,13 @@ empty 'arrayslice'
 
 !! test
 'arrayslice' with negative offset and too hight negative limit
-!! input
+!! wikitext
 "{{
 #arraydefine: a | a, b, c, d, e, f }}{{
 #arrayslice: a | a | -3 | -99 }}{{
 #arrayprint: a
 }}"
-!!result
+!! html
 <p>""
 </p>
 !! end
@@ -633,13 +634,13 @@ empty 'arrayslice'
 
 !! test
 'arrayslice' with negative offset below '0'
-!! input
+!! wikitext
 "{{
 #arraydefine: a | a, b, c, d, e, f }}{{
 #arrayslice: a | a | -99 }}{{
 #arrayprint: a
 }}"
-!!result
+!! html
 <p>"a, b, c, d, e, f"
 </p>
 !! end
@@ -652,13 +653,13 @@ empty 'arrayslice'
 
 !! test
 'arrayreset' certain arrayes
-!! input
+!! wikitext
 "{{
 #arraydefine: a }}{{#arraydefine: b }}{{
 #arrayreset: a | xxx }}{{
 #arraysize: a }}{{#arraysize: b
 }}"
-!!result
+!! html
 <p>"0"
 </p>
 !! end
@@ -666,13 +667,13 @@ empty 'arrayslice'
 
 !! test
 'arrayreset' all arrayes
-!! input
+!! wikitext
 "{{
 #arraydefine: a }}{{#arraydefine: b }}{{
 #arrayreset: }}{{
 #arraysize: a }}{{#arraysize: b
 }}"
-!!result
+!! html
 <p>""
 </p>
 !! end
@@ -680,13 +681,13 @@ empty 'arrayslice'
 
 !! test
 'arrayreset' compatbility-mode
-!! input
+!! wikitext
 "{{
 #arraydefine: a }}{{#arraydefine: b }}{{
 #arrayreset: a, xxx }}{{
 #arraysize: a }}{{#arraysize: b
 }}"
-!!result
+!! html
 <p>"00"
 </p>
 !! end
@@ -698,13 +699,13 @@ empty 'arrayslice'
 
 !! test
 'arrayunique' also removes empty elements!
-!! input
+!! wikitext
 "{{
 #arraydefine: a }}{{#arraydefine: a | a,b,a,b, , a, ,a,b }}{{
 #arrayunique: a }}{{
 #arrayprint: a
 }}"
-!!result
+!! html
 <p>"a, b"
 </p>
 !! end
@@ -714,23 +715,23 @@ empty 'arrayslice'
 ## #arraysort
 ##
 
-!!article
+!! article
 Template:ArrayTests:arraysort
-!!text
+!! text
 <!-- base by the following tests
 -->{{#arraydefine: arrSort | c, g, b, e, a, b, f, e, d }}
 !!endarticle
 
 !! test
 'arraysort' ascending order
-!! input
+!! wikitext
 "{{
 ArrayTests:arraysort
 }}{{
 #arraysort: arrSort | asce }}{{
 #arrayprint: arrSort
 }}"
-!!result
+!! html
 <p>"a, b, b, c, d, e, e, f, g"
 </p>
 !! end
@@ -738,14 +739,14 @@ ArrayTests:arraysort
 
 !! test
 'arraysort' descending order
-!! input
+!! wikitext
 "{{
 ArrayTests:arraysort
 }}{{
 #arraysort: arrSort | desc }}{{
 #arrayprint: arrSort
 }}"
-!!result
+!! html
 <p>"g, f, e, e, d, c, b, b, a"
 </p>
 !! end
@@ -753,7 +754,7 @@ ArrayTests:arraysort
 
 !! test
 'arraysort' ascending order and then revert
-!! input
+!! wikitext
 "{{
 ArrayTests:arraysort
 }}{{
@@ -761,7 +762,7 @@ ArrayTests:arraysort
 #arraysort: arrSort | reverse }}{{
 #arrayprint: arrSort
 }}"
-!!result
+!! html
 <p>"g, f, e, e, d, c, b, b, a"
 </p>
 !! end
@@ -772,9 +773,9 @@ ArrayTests:arraysort
 ## #arraymerge
 ##
 
-!!article
+!! article
 Template:ArrayTests:arrayinteractions
-!!text
+!! text
 <!-- base by the following tests
 -->{{
 #arrayreset: }}{{
@@ -786,7 +787,7 @@ Template:ArrayTests:arrayinteractions
 
 !! test
 'arraymerge' with only one parameter
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
@@ -794,7 +795,7 @@ ArrayTests:arrayinteractions
 #arraymerge: new1 }}{{
 #arraysize: new1
 }}"
-!!result
+!! html
 <p>"0"
 </p>
 !! end
@@ -803,7 +804,7 @@ ArrayTests:arrayinteractions
 !! test
 'arraymerge' with only one array
 This already worked before 2.0!
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
@@ -811,7 +812,7 @@ ArrayTests:arrayinteractions
 #arraymerge: new1 | 1 }}{{
 #arraysize: new1
 }}"
-!!result
+!! html
 <p>"6"
 </p>
 !! end
@@ -819,14 +820,14 @@ ArrayTests:arrayinteractions
 
 !! test
 'arraymerge' of two tables
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
 #arraymerge: new1 | 1 | 2 }}{{
 #arrayprint: new1
 }}"
-!!result
+!! html
 <p>"a, c, d, e, f, g, a, b, d, x, y, z"
 </p>
 !! end
@@ -834,14 +835,14 @@ ArrayTests:arrayinteractions
 
 !! test
 'arraymerge' of three tables
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
 #arraymerge: new1 | 1 | 2 | 3 }}{{
 #arrayprint: new1
 }}"
-!!result
+!! html
 <p>"a, c, d, e, f, g, a, b, d, x, y, z, a, b, e, x, 1, 2"
 </p>
 !! end
@@ -853,7 +854,7 @@ ArrayTests:arrayinteractions
 
 !! test
 'arrayunion' with only one parameter
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
@@ -861,7 +862,7 @@ ArrayTests:arrayinteractions
 #arrayunion: new1 }}{{
 #arraysize: new1
 }}"
-!!result
+!! html
 <p>"0"
 </p>
 !! end
@@ -869,7 +870,7 @@ ArrayTests:arrayinteractions
 
 !! test
 'arrayunion' with only one array
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
@@ -877,7 +878,7 @@ ArrayTests:arrayinteractions
 #arrayunion: new1 | 1 }}{{
 #arraysize: new1
 }}"
-!!result
+!! html
 <p>"6"
 </p>
 !! end
@@ -885,14 +886,14 @@ ArrayTests:arrayinteractions
 
 !! test
 'arrayunion' merging two tables
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
 #arrayunion: new1 | 1 | 2 }}{{
 #arrayprint: new1
 }}"
-!!result
+!! html
 <p>"a, c, d, e, f, g, b, x, y, z"
 </p>
 !! end
@@ -900,14 +901,14 @@ ArrayTests:arrayinteractions
 
 !! test
 'arrayunion' of three tables
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
 #arrayunion: new1 | 1 | 2 | 3 }}{{
 #arrayprint: new1
 }}"
-!!result
+!! html
 <p>"a, c, d, e, f, g, b, x, y, z, 1, 2"
 </p>
 !! end
@@ -919,7 +920,7 @@ ArrayTests:arrayinteractions
 
 !! test
 'arraydiff' with only one parameter
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
@@ -927,7 +928,7 @@ ArrayTests:arrayinteractions
 #arraydiff: new1 }}{{
 #arraysize: new1
 }}"
-!!result
+!! html
 <p>"0"
 </p>
 !! end
@@ -935,7 +936,7 @@ ArrayTests:arrayinteractions
 
 !! test
 'arraydiff' with only one array
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
@@ -943,7 +944,7 @@ ArrayTests:arrayinteractions
 #arraydiff: new1 | 1 }}{{
 #arraysize: new1
 }}"
-!!result
+!! html
 <p>"6"
 </p>
 !! end
@@ -951,14 +952,14 @@ ArrayTests:arrayinteractions
 
 !! test
 'arraydiff' comparing two tables
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
 #arraydiff: new1 | 1 | 2 }}{{
 #arrayprint: new1
 }}"
-!!result
+!! html
 <p>"c, e, f, g"
 </p>
 !! end
@@ -966,14 +967,14 @@ ArrayTests:arrayinteractions
 
 !! test
 'arraydiff' of three tables
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
 #arraydiff: new1 | 1 | 2 | 3 }}{{
 #arrayprint: new1
 }}"
-!!result
+!! html
 <p>"c, f, g"
 </p>
 !! end
@@ -985,7 +986,7 @@ ArrayTests:arrayinteractions
 
 !! test
 'arrayintersect' with only one parameter
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
@@ -993,7 +994,7 @@ ArrayTests:arrayinteractions
 #arrayintersect: new1 }}{{
 #arraysize: new1
 }}"
-!!result
+!! html
 <p>"0"
 </p>
 !! end
@@ -1001,7 +1002,7 @@ ArrayTests:arrayinteractions
 
 !! test
 'arrayintersect' with only one array
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
@@ -1009,7 +1010,7 @@ ArrayTests:arrayinteractions
 #arrayintersect: new1 | 1 }}{{
 #arraysize: new1
 }}"
-!!result
+!! html
 <p>"6"
 </p>
 !! end
@@ -1017,14 +1018,14 @@ ArrayTests:arrayinteractions
 
 !! test
 'arrayintersect' comparing two tables
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
 #arrayintersect: new1 | 1 | 2 }}{{
 #arrayprint: new1
 }}"
-!!result
+!! html
 <p>"a, d"
 </p>
 !! end
@@ -1032,14 +1033,14 @@ ArrayTests:arrayinteractions
 
 !! test
 'arrayintersect' of three tables
-!! input
+!! wikitext
 "{{
 ArrayTests:arrayinteractions
 }}{{
 #arrayintersect: new1 | 1 | 2 | 3 }}{{
 #arrayprint: new1
 }}"
-!!result
+!! html
 <p>"a"
 </p>
 !! end

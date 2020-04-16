@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
+			"Jaroslav Cerny",
 			"Paxt"
 		]
 	},
-	"arrays-desc": "Uložit a vypočítat pojmenovaná pole"
+	"arrays-desc": "Uloží a vypočítá pojmenovaná pole"
 }

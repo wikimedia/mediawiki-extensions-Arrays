@@ -758,12 +758,12 @@ class ExtArrays {
 	 *
 	 * @since 2.0
 	 *
-	 * @param $frame PPFrame
-	 * @param $args array
-	 * @param $operationFunc string name of the function calling this. There must be a counterpart
+	 * @param PPFrame $frame
+	 * @param array $args
+	 * @param string $operationFunc name of the function calling this. There must be a counterpart
 	 *        function with prefix 'multi_' which should have two parameters. Both parameters
 	 *        will receive an array, the function must return the result array of the processing.
-	 * @param $runFuncOnSingleArray boolean whether the operationFunc function should be run in case
+	 * @param bool $runFuncOnSingleArray whether the operationFunc function should be run in case
 	 *        only one array id is given. If not, the original array will end up in the new array.
 	 */
 	protected function multiArrayOperation( PPFrame $frame, array $args, $operationFunc, $runFuncOnSingleArray = true ) {
@@ -1251,6 +1251,7 @@ class ExtArrays {
 	/**
 	 * Whether 'Regex Fun' extension is available in this wiki to take over preg_replace handling
 	 * for '#arraysearcharray' function.
+	 * @return bool
 	 */
 	static function hasRegexFunSupport() {
 		static $support = null;

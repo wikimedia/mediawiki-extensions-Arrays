@@ -1170,7 +1170,7 @@ class ExtArrays {
 	 *
 	 * @since 2.0
 	 *
-	 * @param Array $array
+	 * @param array $array
 	 * @param string|null $commaSep
 	 *
 	 * @return string

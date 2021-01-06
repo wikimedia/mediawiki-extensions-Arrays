@@ -1243,7 +1243,7 @@ class ExtArrays {
 			return false;
 		}
 		Wikimedia\suppressWarnings(); // instead of using the evil @ operator!
-		$isValid = false !== preg_match( $pattern, ' ' ); // preg_match returns false on error
+		$isValid = preg_match( $pattern, ' ' ) !== false; // preg_match returns false on error
 		Wikimedia\restoreWarnings();
 		return $isValid;
 	}

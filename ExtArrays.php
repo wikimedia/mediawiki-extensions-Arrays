@@ -945,6 +945,9 @@ class ExtArrays {
 	# Used Hooks #
 	# #############
 
+	/**
+	 * @param Parser &$parser
+	 */
 	public static function onParserClearState( Parser &$parser ) {
 		// remove all arrays to avoid conflicts with job queue or Special:Import or SMW semantic updates
 		$parser->mExtArrays = new self();

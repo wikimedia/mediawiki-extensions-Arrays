@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Sp5uhe"
+			"Sp5uhe",
+			"Rail"
 		]
 	},
-	"arrays-desc": "Przechowywanie i przeliczanie nazwanych tabel"
+	"arrays-desc": "Przechowywanie i przeliczanie nazwanych tablic"
 }

@@ -2,8 +2,9 @@
 	"@metadata": {
 		"authors": [
 			"Erdemaslancan",
-			"Khutuck"
+			"Khutuck",
+			"SaldırganSincap"
 		]
 	},
-	"arrays-desc": "İsimlendirilmiş dizileri sakla ve hesapla"
+	"arrays-desc": "İsimlendirilmiş dizileri saklayın ve hesaplayın"
 }

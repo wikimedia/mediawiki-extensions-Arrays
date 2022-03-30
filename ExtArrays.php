@@ -1,5 +1,7 @@
 <?php
 
+use Wikimedia\AtEase\AtEase;
+
 /**
  * Extension class with all the array functionality, also serves as store for arrays per
  * Parser object and offers public accessors for interaction with the 'Arrays' extension.
@@ -1243,9 +1245,9 @@ class ExtArrays {
 		if ( !preg_match( '/^([\\/\\|%]).*\\1[imsSuUx]*$/', $pattern ) ) {
 			return false;
 		}
-		Wikimedia\suppressWarnings(); // instead of using the evil @ operator!
+		AtEase::suppressWarnings(); // instead of using the evil @ operator!
 		$isValid = preg_match( $pattern, ' ' ) !== false; // preg_match returns false on error
-		Wikimedia\restoreWarnings();
+		AtEase::restoreWarnings();
 		return $isValid;
 	}
 

@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Dbc334"
+			"Dbc334",
+			"Eleassar"
 		]
 	},
-	"arrays-desc": "Shrani in izračuna imenovana polja"
+	"arrays-desc": "Omogoča shranjevanje in uporabo poimenovanih matrik"
 }

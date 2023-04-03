@@ -1044,3 +1044,13 @@ ArrayTests:arrayinteractions
 <p>"a"
 </p>
 !! end
+
+!! test
+single-element 'arraydefine' with initial delimiter (T286928)
+!! wikitext
+{{#arraydefine:single_el|,1,2}}
+{{#arrayprint:single_el}}
+!! html
+<p>, 1, 2
+</p>
+!! end

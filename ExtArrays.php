@@ -936,9 +936,15 @@ class ExtArrays {
 	 * same as self::arrayUnique() but without sanitazation, only for internal use.
 	 */
 	protected static function array_unique( array $array ) {
-		return array_filter( array_unique( $array ), static function ( $value ) {
-			return $value !== '';
-		} );
+		$values = [];
+
+		foreach ( array_unique( $array ) as $value ) {
+			if ( $value !== '' ) {
+				$values[] = $value;
+			}
+		}
+
+		return $values;
 	}
 
 	# #############

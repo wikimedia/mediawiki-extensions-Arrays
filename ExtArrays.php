@@ -152,11 +152,8 @@ class ExtArrays {
 
 			// if 'singleempty' is NOT set, {{#arraydefine:a|}} will be empty.
 			// by default this would give an empty array (due to historical as well as usability reasons)
-			if ( !array_key_exists( 'singleempty', $arrayOptions ) ) {
-				// there is no other uncomplicated way than this to define a single empty elemented array currently!
-				if ( count( $array ) === 1 && $array[0] === '' ) {
-					$array = [];
-				}
+			if ( !array_key_exists( 'singleempty', $arrayOptions ) && $array === [ '' ] ) {
+				$array = [];
 			}
 
 			/**

@@ -1,8 +1,9 @@
 {
 	"@metadata": {
 		"authors": [
-			"Hydra"
+			"Hydra",
+			"LittlePaw365"
 		]
 	},
-	"arrays-desc": "存储和计算指定的数组"
+	"arrays-desc": "存储和计算命名数组"
 }

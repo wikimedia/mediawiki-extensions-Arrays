@@ -372,7 +372,7 @@ class ExtArrays {
 		$store = self::get( $parser );
 
 		if ( !$store->arrayExists( $arrayId ) ) {
-		   return '';
+			return '';
 		}
 
 		return count( $store->getArray( $arrayId ) );
@@ -568,7 +568,7 @@ class ExtArrays {
 		if ( $array === null
 			|| !is_numeric( $offset ) // don't ignore invalid offset
 		) {
-		   return '';
+			return '';
 		}
 
 		if ( !is_numeric( $length ) ) {
@@ -632,9 +632,9 @@ class ExtArrays {
 		$store = self::get( $parser );
 
 		if ( $store->arrayExists( $arrayId ) ) {
-		   $array = $store->getArray( $arrayId );
-		   $array = self::array_unique( $array );
-		   $store->setArray( $arrayId, $array );
+			$array = $store->getArray( $arrayId );
+			$array = self::array_unique( $array );
+			$store->setArray( $arrayId, $array );
 		}
 		return '';
 	}
@@ -660,7 +660,7 @@ class ExtArrays {
 		$array = $store->getArray( $arrayId );
 
 		if ( $array === null ) {
-		   return '';
+			return '';
 		}
 
 		// sort array and store it

@@ -726,7 +726,6 @@ class ExtArrays {
 	}
 
 	/**
-	 *
 	 * Usage:
 	 *    {{#arraydiff:arrayid_new |array1 |array2 |... |array n}}
 	 *

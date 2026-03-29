@@ -188,8 +188,7 @@ class ExtArrays {
 					$out = implode( self::$mDefaultSep, $array );
 					break;
 				case 'pretty':
-					global $wgLang;
-					$out = $wgLang->listToText( $array );
+					$out = $parser->getContentLanguage()->listToText( $array );
 					break;
 			}
 		}
@@ -289,11 +288,12 @@ class ExtArrays {
 		switch ( self::array_value( $options, 'print' ) ) {
 			case 'pretty':
 				// pretty list print with ' and ' connecting the last two items
+				$lang = $parser->getContentLanguage();
 				if ( $delimiter === '' ) {
 					// '' as delimiter isn't pretty, so in this case we take the (languages) default
-					$output = self::arrayToText( $rendered_values );
+					$output = self::arrayToText( $rendered_values, $lang );
 				} else {
-					$output = self::arrayToText( $rendered_values, $delimiter );
+					$output = self::arrayToText( $rendered_values, $lang, $delimiter );
 				}
 				break;
 
@@ -1174,23 +1174,23 @@ class ExtArrays {
 	 * @since 2.0
 	 *
 	 * @param array $array
+	 * @param Langauge $lang The content language used for parsing.
 	 * @param string|null $commaSep
 	 *
 	 * @return string
 	 */
-	public static function arrayToText( array $array, $commaSep = null ) {
-		global $wgLang;
+	public static function arrayToText( array $array, Language $lang, $commaSep = null ) {
 		$commaSep = $commaSep === null ? self::$mDefaultSep : $commaSep;
 		$s = '';
 		$m = count( $array ) - 1;
 		if ( $m == 1 ) {
-			return $array[0] . $wgLang->getMessageFromDB( 'and' ) . $wgLang->getMessageFromDB( 'word-separator' ) . $array[1];
+			return $array[0] . $lang->getMessageFromDB( 'and' ) . $lang->getMessageFromDB( 'word-separator' ) . $array[1];
 		} else {
 			for ( $i = $m; $i >= 0; $i-- ) {
 				if ( $i == $m ) {
 					$s = $array[$i];
 				} elseif ( $i == $m - 1 ) {
-					$s = $array[$i] . $wgLang->getMessageFromDB( 'and' ) . $wgLang->getMessageFromDB( 'word-separator' ) . $s;
+					$s = $array[$i] . $lang->getMessageFromDB( 'and' ) . $lang->getMessageFromDB( 'word-separator' ) . $s;
 				} else {
 					$s = $array[$i] . $commaSep . $s;
 				}

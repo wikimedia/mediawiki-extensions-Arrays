@@ -188,7 +188,7 @@ class ExtArrays {
 					$out = implode( self::$mDefaultSep, $array );
 					break;
 				case 'pretty':
-					$out = $parser->getContentLanguage()->listToText( $array );
+					$out = $parser->getTargetLanguage()->listToText( $array );
 					break;
 			}
 		}
@@ -288,7 +288,7 @@ class ExtArrays {
 		switch ( self::array_value( $options, 'print' ) ) {
 			case 'pretty':
 				// pretty list print with ' and ' connecting the last two items
-				$lang = $parser->getContentLanguage();
+				$lang = $parser->getTargetLanguage();
 				if ( $delimiter === '' ) {
 					// '' as delimiter isn't pretty, so in this case we take the (languages) default
 					$output = self::arrayToText( $rendered_values, $lang );
@@ -1174,7 +1174,7 @@ class ExtArrays {
 	 * @since 2.0
 	 *
 	 * @param array $array
-	 * @param Langauge $lang The content language used for parsing.
+	 * @param Langauge $lang The target language used for parsing.
 	 * @param string|null $commaSep
 	 *
 	 * @return string
